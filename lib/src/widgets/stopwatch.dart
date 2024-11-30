@@ -2,9 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../theme/theme.dart';
-
-
 class StopWatch extends StatefulWidget {
   const StopWatch({super.key});
 
@@ -87,7 +84,6 @@ class _StopWatchState extends State<StopWatch> {
                   ),
                   Text(
                     '$hours:$minutes:$seconds',
-                    style: redtitle2Style,
                   ),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.07,
@@ -111,7 +107,6 @@ class _StopWatchState extends State<StopWatch> {
               ),
               Text(
                 "Tempo de hoje: $hours:$minutes:$seconds",
-                style: redsubtitleStyle,
               ),
             ],
           ),

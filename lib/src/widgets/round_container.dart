@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../theme/theme.dart';
-
 class RoundContainer extends StatelessWidget {
   final String label;
   final String value;
@@ -27,7 +25,7 @@ class RoundContainer extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(label, style: redsubtitleStyle2),
+            Text(label),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -42,7 +40,6 @@ class RoundContainer extends StatelessWidget {
                 ),
                 Text(
                   value,
-                  style: redtitle2Style,
                 ),
                 IconButton(
                   onPressed: onIncrement,
