@@ -1,6 +1,9 @@
-import 'package:crochetime/src/app/crochet_timer_app.dart';
+import 'package:crochetime/routing/router.dart';
+import 'package:crochetime/ui/core/themes/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import 'ui/core/ui/snackbar_helper.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,4 +15,19 @@ void main() {
       const CrochetTimeApp(),
     ),
   );
+}
+
+class CrochetTimeApp extends StatelessWidget {
+  const CrochetTimeApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp.router(
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: ThemeMode.system,
+      routerConfig: routerConfig(),
+      scaffoldMessengerKey: SnackBarHelper.key,
+    );
+  }
 }

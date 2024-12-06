@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/round_container.dart';
-import '../widgets/stopwatch.dart';
+import '../core/ui/round_container.dart';
+import '../core/ui/stopwatch.dart';
 
-class TimerContainerScreen extends StatefulWidget {
-  const TimerContainerScreen({super.key});
+class TimerScreen extends StatefulWidget {
+  const TimerScreen({super.key});
 
   @override
-  State<TimerContainerScreen> createState() => _TimerContainerScreenState();
+  State<TimerScreen> createState() => _TimerScreenState();
 }
 
-class _TimerContainerScreenState extends State<TimerContainerScreen> {
+class _TimerScreenState extends State<TimerScreen> {
   int pointTotal = 0;
   int roundTotal = 0;
 

@@ -1,25 +1,15 @@
 import 'package:flutter/material.dart';
 
-class DetailsArguments {
-  final String title;
-  final String description;
-
-  DetailsArguments(this.title, this.description);
-}
-
-class DetailsView extends StatefulWidget {
-  static const routeName = '/details';
-
-  const DetailsView({super.key});
+class DetailsScreen extends StatefulWidget {
+  const DetailsScreen({super.key});
 
   @override
-  State<DetailsView> createState() => _DetailsViewState();
+  State<DetailsScreen> createState() => _DetailsScreenState();
 }
 
-class _DetailsViewState extends State<DetailsView> {
+class _DetailsScreenState extends State<DetailsScreen> {
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context)!.settings.arguments as DetailsArguments;
     return Scaffold(
       appBar: AppBar(),
       body: Column(
@@ -36,12 +26,12 @@ class _DetailsViewState extends State<DetailsView> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  args.title,
+                  'lorem ipsum',
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  args.description,
+                  'lorem ipsum',
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
               ],

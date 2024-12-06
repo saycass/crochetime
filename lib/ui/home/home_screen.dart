@@ -1,9 +1,16 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:crochetime/src/widgets/crochet_pattern_card.dart';
 import 'package:flutter/material.dart';
 
-class HomeView extends StatelessWidget {
-  const HomeView({super.key});
+import 'home_viewmodel.dart';
+import 'widgets/crochet_pattern_card.dart';
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({
+    super.key,
+    required this.viewModel,
+  });
+
+  final HomeViewModel viewModel;
 
   @override
   Widget build(BuildContext context) {

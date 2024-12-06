@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SnackbarHelper {
-  const SnackbarHelper._();
+class SnackBarHelper {
+  const SnackBarHelper._();
 
   static final _key = GlobalKey<ScaffoldMessengerState>();
 

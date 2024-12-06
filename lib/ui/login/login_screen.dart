@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-import '../app/crochet_timer_app.dart';
-import '../constants.dart';
-import '../helper/navigation_helper.dart';
-import '../theme/theme.dart';
-import '../widgets/custom_text_form_field.dart';
-import '../widgets/gradient_background.dart';
+import '../../constants.dart';
+import '../../routing/routes.dart';
+import '../core/ui/custom_text_form_field.dart';
+import '../core/ui/gradient_background.dart';
+import 'login_viewmodel.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({
+    super.key,
+    required this.viewModel,
+  });
+
+  final LoginViewModel viewModel;
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
 
   final ValueNotifier<bool> passwordNotifier = ValueNotifier(true);
@@ -40,10 +45,11 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 Text(
                   'Entre na sua\nConta',
-                  style: AppTheme.titleLarge,
                 ),
                 SizedBox(height: 6),
-                Text('Entre na sua Conta', style: AppTheme.bodySmall),
+                Text(
+                  'Entre na sua Conta',
+                ),
               ],
             ),
             Form(
@@ -112,9 +118,7 @@ class _LoginPageState extends State<LoginPage> {
                       builder: (_, isValid, __) {
                         return FilledButton(
                           onPressed: () {
-                            NavigationHelper.pushNamed(
-                              AppRoutes.home,
-                            );
+                            context.go(Routes.home);
                             emailController.clear();
                             passwordController.clear();
                           },
@@ -131,15 +135,12 @@ class _LoginPageState extends State<LoginPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   'Não tem uma conta?',
-                  style: AppTheme.bodySmall.copyWith(color: Colors.black),
                 ),
                 const SizedBox(width: 4),
                 TextButton(
-                  onPressed: () => NavigationHelper.pushNamed(
-                    AppRoutes.register,
-                  ),
+                  onPressed: () => context.go(Routes.register),
                   child: const Text('Crie uma conta'),
                 ),
               ],

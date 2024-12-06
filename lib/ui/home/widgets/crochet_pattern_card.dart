@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-import '../views/details_view.dart';
+import '../../../routing/routes.dart';
 
 class CrochetPatternCard extends StatelessWidget {
   final String title;
@@ -16,14 +17,7 @@ class CrochetPatternCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(
-          context,
-          '/details',
-          arguments: DetailsArguments(
-            title,
-            description,
-          ),
-        );
+        context.go(Routes.details);
       },
       child: Card(
         child: Padding(
