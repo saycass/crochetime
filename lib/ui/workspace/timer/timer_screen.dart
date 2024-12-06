@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../core/ui/round_container.dart';
-import '../core/ui/stopwatch.dart';
+import '../../core/ui/round_container.dart';
+import '../../core/ui/stopwatch.dart';
 
 class TimerScreen extends StatefulWidget {
   const TimerScreen({super.key});

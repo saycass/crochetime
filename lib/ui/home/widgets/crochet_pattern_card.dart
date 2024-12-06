@@ -17,7 +17,6 @@ class CrochetPatternCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.go(Routes.details);
       },
       child: Card(
         child: Padding(

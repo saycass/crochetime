@@ -1,11 +1,12 @@
 import 'package:crochetime/routing/routes.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 
 import '../ui/home/home_screen.dart';
 import '../ui/home/home_viewmodel.dart';
 import '../ui/login/login_screen.dart';
 import '../ui/login/login_viewmodel.dart';
+import '../ui/workspace/workspace.dart' as workspace;
+import '../ui/explore/explore.dart' as explore;
 
 GoRouter routerConfig() => GoRouter(
       initialLocation: Routes.home,
@@ -27,11 +28,30 @@ GoRouter routerConfig() => GoRouter(
           },
           routes: [
             GoRoute(
-              path: Routes.details,
-              builder: (context, state) {
-                return const Placeholder();
-              },
-            ),
+                path: Routes.workspace,
+                builder: (context, state) {
+                  return const workspace.HomeScreen();
+                },
+                routes: [
+                  GoRoute(
+                    path: ':id',
+                    builder: (context, state) {
+                      return const workspace.DetailsScreen();
+                    },
+                  ),
+                ]),
+            GoRoute(
+                path: Routes.explore,
+                builder: (context, state) {
+                  return const explore.HomeScreen();
+                },
+                routes: [
+                  GoRoute(
+                      path: ':id',
+                      builder: (context, state) {
+                        return const explore.DetailsScreen();
+                      })
+                ]),
           ],
         ),
       ],
