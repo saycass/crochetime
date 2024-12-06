@@ -23,10 +23,11 @@ class CrochetTimeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
-      routerConfig: routerConfig(),
+      routerConfig: routerConfig,
       scaffoldMessengerKey: SnackBarHelper.key,
     );
   }

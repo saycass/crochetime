@@ -56,6 +56,9 @@ abstract final class AppTheme {
     colorScheme: AppColors.lightColorScheme,
     textTheme: _textTheme,
     inputDecorationTheme: _inputDecorationTheme,
+    splashFactory: InkRipple.splashFactory,
+    splashColor: Colors.orange.withOpacity(0.3),
+    highlightColor: Colors.orange.withOpacity(0.1),
   );
 
   static ThemeData darkTheme = ThemeData(
