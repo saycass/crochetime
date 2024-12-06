@@ -1,6 +1,8 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../routing/routes.dart';
 import 'home_viewmodel.dart';
 import 'widgets/crochet_pattern_card.dart';
 
@@ -20,39 +22,20 @@ class HomeScreen extends StatelessWidget {
           "Hora do Crochê ",
         ),
       ),
-      body: RefreshIndicator(
-        onRefresh: () async {},
-        child: GridView.builder(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          itemCount: 6,
-          itemBuilder: (BuildContext context, int index) {
-            var card = const CrochetPatternCard(
-              title: 'Cachecol',
-              description: 'Cachecol de crochê',
-            );
-            if (index % 2 != 0) {
-              return FadeInUp(
-                duration: const Duration(seconds: 1),
-                child: Transform.translate(
-                  offset: const Offset(0.0, 50.0),
-                  child: card,
-                ),
-              );
-            } else {
-              return FadeInDown(
-                duration: const Duration(seconds: 1),
-                child: card,
-              );
-            }
-          },
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            childAspectRatio: .5,
-            crossAxisCount: 2,
-            crossAxisSpacing: 16,
-            mainAxisSpacing: 16,
+      body: Column(
+       crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Row(
+            children: [
+              const Text("Seus projetos"),
+              IconButton(onPressed:  () => context.go(Routes.explore),
+                  icon: const Icon(Icons.arrow_forward_rounded),
+              ),
+            ],
           ),
-        ),
+        ],
       ),
+
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(
@@ -74,3 +57,5 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
+

@@ -16,8 +16,9 @@ class CrochetPatternCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-      },
+      onTap: () => context.go(
+        Routes.exploreDetails('mock'),
+      ),
       child: Card(
         child: Padding(
           padding: const EdgeInsets.all(4.0),

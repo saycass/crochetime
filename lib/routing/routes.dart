@@ -6,11 +6,12 @@ abstract final class Routes {
   /// Workspace
   static const workspace = '/workspace';
 
-  static String workspaceDetails(int id) => '$workspace/$id';
+  static String workspaceDetails(String id) => '$workspace/$id';
 
-  static String workspaceTimer(int id)  => '$workspace/$id/timer';
+  static String workspaceTimer(String id)  => '$workspace/$id/timer';
 
   /// Explore
   static const explore = '/explore';
-  static String exploreDetails (int id) => '$explore/$id';
+  static String exploreDetails (String id) => '$explore/$id';
+
 }

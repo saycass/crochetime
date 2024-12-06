@@ -1,4 +1,7 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+
+import '../../home/widgets/crochet_pattern_card.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -6,8 +9,44 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: const Placeholder(),
+      appBar: AppBar(
+        title: const Text(
+          "Hora do Crochê ",
+        ),
+      ),
+      body: RefreshIndicator(
+        onRefresh: () async {},
+        child: GridView.builder(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          itemCount: 6,
+          itemBuilder: (BuildContext context, int index) {
+            var card = const CrochetPatternCard(
+              title: 'Cachecol',
+              description: 'Cachecol de crochê',
+            );
+            if (index % 2 != 0) {
+              return FadeInUp(
+                duration: const Duration(seconds: 1),
+                child: Transform.translate(
+                  offset: const Offset(0.0, 50.0),
+                  child: card,
+                ),
+              );
+            } else {
+              return FadeInDown(
+                duration: const Duration(seconds: 1),
+                child: card,
+              );
+            }
+          },
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            childAspectRatio: .5,
+            crossAxisCount: 2,
+            crossAxisSpacing: 16,
+            mainAxisSpacing: 16,
+          ),
+        ),
+      ),
     );
   }
 }
