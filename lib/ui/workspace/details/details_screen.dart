@@ -26,7 +26,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  'lorem ipsum',
+                  'Projeto 1',
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
                 const SizedBox(height: 16),

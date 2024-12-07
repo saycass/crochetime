@@ -24,9 +24,8 @@ class HomeScreen extends StatelessWidget {
             flexibleSpace: FlexibleSpaceBar(
               background: Container(
                 padding: const EdgeInsets.all(8.0),
-                decoration: const BoxDecoration(
-                  color: Colors.orange,
-
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primaryContainer,
                 ),
                 child: const Column(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -68,7 +67,9 @@ class HomeScreen extends StatelessWidget {
                         Text(
                           'Seus projetos',
                           style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                         Icon(Icons.arrow_forward_ios_rounded),
                       ],
@@ -93,7 +94,9 @@ class HomeScreen extends StatelessWidget {
                               color: Colors.black.withOpacity(0.2),
                               blurRadius: 6,
                               offset: const Offset(
-                                  0, 2), // changes position of shadow
+                                0,
+                                2,
+                              ), // changes position of shadow
                             ),
                           ],
                         ),
@@ -118,7 +121,9 @@ class HomeScreen extends StatelessWidget {
                         Text(
                           'Explore novos projetos',
                           style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                         Icon(Icons.arrow_forward_ios_rounded),
                       ],
@@ -143,7 +148,9 @@ class HomeScreen extends StatelessWidget {
                               color: Colors.black.withOpacity(0.2),
                               blurRadius: 6,
                               offset: const Offset(
-                                  0, 2), // changes position of shadow
+                                0,
+                                2,
+                              ), // changes position of shadow
                             ),
                           ],
                         ),
@@ -160,12 +167,12 @@ class HomeScreen extends StatelessWidget {
                 const SizedBox(
                   height: 200,
                   child: Center(
-                    child: Text("Mais novidades a caminho..."),
+                    child: Text('Mais novidades a caminho...'),
                   ),
                 ),
               ],
             ),
-          )
+          ),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -189,5 +196,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
-

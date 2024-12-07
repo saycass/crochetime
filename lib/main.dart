@@ -22,11 +22,16 @@ class CrochetTimeApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = createTextTheme(
+      context,
+      bodyFontString: 'Roboto',
+      displayFontString: 'Pacifico',
+    );
+    final theme = MaterialTheme(textTheme);
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.system,
+      theme: theme.light(),
+      darkTheme: theme.dark(),
       routerConfig: routerConfig,
       scaffoldMessengerKey: SnackBarHelper.key,
     );
