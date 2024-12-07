@@ -17,9 +17,9 @@ class HomeScreen extends StatelessWidget {
         itemCount: 5,
         itemBuilder: (BuildContext context, int index) {
           return Container(
-            margin: const EdgeInsets.symmetric(vertical: 12),
+            margin: const EdgeInsets.symmetric(vertical: 8),
             child: ProjectCard(
-              title: 'Projeto ${index + 1}',
+              title: 'Projeto  ${index + 1}',
             ),
           );
         },
@@ -35,13 +35,13 @@ class ProjectCard extends StatelessWidget {
   const ProjectCard({
     super.key,
     required this.title,
-    this.body = 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+    this.body = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ',
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(12),
+      padding: const EdgeInsets.only(left: 8, right: 8, bottom: 8, top:8),
       decoration: BoxDecoration(
         color: context.theme.colorScheme.surfaceContainerHigh,
         borderRadius: BorderRadius.circular(15.0),
@@ -54,62 +54,64 @@ class ProjectCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              title,
-              maxLines: 1,
-              style: context.textTheme.titleLarge!.copyWith(
-                color: context.theme.colorScheme.primary,
-              ),
-            ),
-            const SizedBox(height: 16),
-            Text(
-              body,
-              style: context.textTheme.bodyMedium!.copyWith(
-                color: context.theme.colorScheme.onSurface,
-              ),
+            Row(
+              children: [
+                Text(
+                  title,
+                  maxLines: 1,
+                  style: context.textTheme.titleLarge!.copyWith(
+                    color: context.theme.colorScheme.primary,
+                  ),
+                ),
+                const SizedBox(width: 85),
+
+              ],
             ),
             const SizedBox(height: 8),
-            Container(
-              width: 400,
-              height: 200,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-              ),
-              clipBehavior: Clip.antiAlias,
-              child: Image.network(
-                randomImage,
-                fit: BoxFit.cover,
-              ),
+            Row(
+              children: [
+                Container(
+                  width: 80,
+                  height: 80,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  clipBehavior: Clip.antiAlias,
+                  child: Image.network(
+                    randomImage,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                const SizedBox(width: 16),
+                Flexible(
+                  child: Text(
+                    body,
+                    style: context.textTheme.bodyMedium!.copyWith(
+                      color: context.theme.colorScheme.onSurface,
+                    ),
+                    maxLines: 4,
+                  ),
+                ),
+              ],
             ),
             const SizedBox(height: 8),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 4),
-              child: Row(
-                children: [
-                  const CircleAvatar(
-                    child: Icon(Icons.timelapse),
+            Row(
+              children: [
+                Text(
+                  'Tempo dedicado',
+                  style: context.textTheme.labelLarge!.copyWith(
+                    color: context.theme.colorScheme.primary,
                   ),
-                  const SizedBox(width: 8),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Tempo dedicado',
-                        style: context.textTheme.labelLarge!.copyWith(
-                          color: context.theme.colorScheme.onSurface,
-                        ),
-                      ),
-                      Text(
-                        '01:53:00',
-                        textAlign: TextAlign.center,
-                        style: context.textTheme.titleLarge!.copyWith(
-                          color: context.theme.colorScheme.primary,
-                        ),
-                      ),
-                    ],
+                ),
+                const SizedBox(width: 120),
+                Text(
+                  '01:53:00',
+                  textAlign: TextAlign.center,
+                  style: context.textTheme.titleLarge!.copyWith(
+                    color: context.theme.colorScheme.primary,
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ],
         ),
