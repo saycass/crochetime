@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../routing/routes.dart';
 import '../../core/themes/dimension.dart';
 import '../../extensions/extensions.dart';
 import '../../home/home_screen.dart';
@@ -147,6 +149,12 @@ class _DetailsScreenState extends State<DetailsScreen> {
             ),
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          context.go(Routes.workspaceTimer('mock'));
+        },
+        child: const Icon(Icons.timer),
       ),
     );
   }

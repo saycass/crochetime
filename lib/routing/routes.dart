@@ -1,17 +1,21 @@
 abstract final class Routes {
+  /// Home routes
   static const home = '/';
+
+  /// Auth routes
   static const login = '/login';
   static const register = '/register';
 
-  /// Workspace
+  /// Workspace routes
   static const workspace = '/workspace';
+  static const timer = '/timer';
 
   static String workspaceDetails(String id) => '$workspace/$id';
 
-  static String workspaceTimer(String id)  => '$workspace/$id/timer';
+  static String workspaceTimer(String id) => '$workspace/$id/timer';
 
-  /// Explore
+  /// Explore routes
   static const explore = '/explore';
-  static String exploreDetails (String id) => '$explore/$id';
 
+  static String exploreDetails(String id) => '$explore/$id';
 }

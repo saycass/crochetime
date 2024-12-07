@@ -38,6 +38,14 @@ final routerConfig = GoRouter(
               builder: (context, state) {
                 return const workspace.DetailsScreen();
               },
+              routes: [
+                GoRoute(
+                  path: Routes.timer,
+                  builder: (context, state) {
+                    return const workspace.TimerScreen();
+                  },
+                ),
+              ],
             ),
           ],
         ),
