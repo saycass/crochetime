@@ -13,10 +13,14 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: ListView.builder(
-        itemCount: 10,
+        padding: const EdgeInsets.all(24),
+        itemCount: 5,
         itemBuilder: (BuildContext context, int index) {
-          return ProjectCard(
-            title: 'Projeto ${index + 1}',
+          return Container(
+            margin: const EdgeInsets.symmetric(vertical: 12),
+            child: ProjectCard(
+              title: 'Projeto ${index + 1}',
+            ),
           );
         },
       ),
@@ -37,7 +41,6 @@ class ProjectCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 14),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: context.theme.colorScheme.surfaceContainerHigh,
@@ -78,13 +81,6 @@ class ProjectCard extends StatelessWidget {
               height: 200,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.2),
-                    blurRadius: 6,
-                    offset: const Offset(0, 2),
-                  ),
-                ],
               ),
               clipBehavior: Clip.antiAlias,
               child: Image.network(

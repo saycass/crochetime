@@ -39,13 +39,13 @@ class HomeScreen extends StatelessWidget {
                 onTap: () => context.go(Routes.workspace),
                 items: const [1, 2, 3, 4, 5],
               ),
-              const SizedBox(height: 40),
+              const SizedBox(height: 24),
               TitledHorizontalList(
                 title: 'Explore novos projetos',
                 onTap: () => context.go(Routes.explore),
                 items: const [1, 2, 3, 4, 5],
               ),
-              const SizedBox(height: 40),
+              const SizedBox(height: 24),
               const Note(
                 icon: Icons.info_rounded,
                 text: 'Novidades estão chegando! Continue acompanhando!',
@@ -74,8 +74,8 @@ class TitledHorizontalList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: context.colorScheme.surfaceContainer,
-        borderRadius: BorderRadius.circular(20),
+        color: context.theme.colorScheme.surfaceContainerHigh,
+        borderRadius: BorderRadius.circular(15.0),
       ),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -160,7 +160,7 @@ class Note extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: context.colorScheme.tertiaryContainer,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(15.0),
       ),
       child: Row(
         children: [
