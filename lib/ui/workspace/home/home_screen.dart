@@ -1,8 +1,8 @@
-import 'package:crochetime/ui/extensions/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../routing/routes.dart';
+import '../../extensions/extensions.dart';
 import '../../home/home_screen.dart';
 
 class HomeScreen extends StatelessWidget {

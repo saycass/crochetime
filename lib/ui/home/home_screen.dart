@@ -1,10 +1,10 @@
 import 'dart:math';
 
-import 'package:crochetime/ui/extensions/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../routing/routes.dart';
+import '../extensions/extensions.dart';
 import 'home_viewmodel.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -138,7 +138,6 @@ String get randomImage {
     'https://i.pinimg.com/736x/6a/27/0d/6a270df6ca56ee87a01700fc80e6fae7.jpg',
     'https://i.pinimg.com/736x/83/c5/dc/83c5dcba28b4dbe5cfea87f9df25bc39.jpg',
     'https://i.pinimg.com/736x/00/44/96/0044960c9934cfa0ccb068000db688c8.jpg',
-
   ];
   return images[random.nextInt(images.length)];
 }

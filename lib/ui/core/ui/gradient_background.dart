@@ -1,6 +1,6 @@
-import 'package:crochetime/ui/extensions/extensions.dart';
 import 'package:flutter/material.dart';
 
+import '../../extensions/extensions.dart';
 import '../themes/colors.dart';
 
 class GradientBackground extends StatelessWidget {
