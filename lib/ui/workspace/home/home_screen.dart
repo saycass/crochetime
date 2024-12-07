@@ -45,13 +45,6 @@ class ProjectCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: context.theme.colorScheme.surfaceContainerHigh,
         borderRadius: BorderRadius.circular(15.0),
-        boxShadow: [
-          BoxShadow(
-            color: context.theme.colorScheme.shadow.withOpacity(0.2),
-            offset: const Offset(0, 2),
-            blurRadius: 6,
-          ),
-        ],
       ),
       child: InkWell(
         onTap: () {

@@ -104,7 +104,7 @@ class TitledHorizontalList extends StatelessWidget {
                 itemCount: items.length,
                 itemBuilder: (context, index) {
                   return Container(
-                    width: 120,
+                    width: 200,
                     margin: const EdgeInsets.symmetric(horizontal: 8.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
@@ -135,10 +135,7 @@ class TitledHorizontalList extends StatelessWidget {
 String get randomImage {
   final random = Random();
   final images = [
-    'https://s2.glbimg.com/IB4h-3P4DgWeDcJCiOMRkYhPCc0=/512x320/smart/e.glbimg.com/og/ed/f/original/2012/12/11/croche_tendencia_paris_02.jpg',
-    'https://images.tcdn.com.br/img/img_prod/734193/amigurumi_polvo_de_croche_7_1_aff2fb4efaafd58c91da55178669aee6.jpg',
-    'https://cdn.sistemawbuy.com.br/arquivos/d05cc51b206ca91ff431904b450f4829/blogitens/cesta-de-bolas-de-la-e-mulher-tecelagem-657394d7154fb1.jpg',
-    'https://clubepaineiras.org.br/wp-content/uploads/2022/10/croche-clothesline-800x450.jpg',
+    'https://i.pinimg.com/736x/84/eb/66/84eb66dc84c0140e33bde8501df7cbc2.jpg'
   ];
   return images[random.nextInt(images.length)];
 }
