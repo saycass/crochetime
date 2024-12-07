@@ -135,8 +135,7 @@ class TitledHorizontalList extends StatelessWidget {
 String get randomImage {
   final random = Random();
   final images = [
-    'https://img.freepik.com/free-vector/crochet-concept-illustration_114360-6029.jpg?t=st=1733596805~exp=1733600405~hmac=2dbc74908e3aa3b1e614de2d95455f5b0a47f6f56b0d147c49f857cdd7aa2fab&w=1380'
-
+    'https://i.pinimg.com/736x/49/d8/26/49d826447cf83fdec134b6f05af6bd45.jpg',
   ];
   return images[random.nextInt(images.length)];
 }
