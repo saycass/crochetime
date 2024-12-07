@@ -17,7 +17,7 @@ class HomeScreen extends StatelessWidget {
         itemCount: 5,
         itemBuilder: (BuildContext context, int index) {
           return Container(
-            margin: const EdgeInsets.symmetric(vertical: 8),
+            margin: const EdgeInsets.symmetric(vertical: 16),
             child: ProjectCard(
               title: 'Projeto  ${index + 1}',
             ),
@@ -35,13 +35,12 @@ class ProjectCard extends StatelessWidget {
   const ProjectCard({
     super.key,
     required this.title,
-    this.body = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ',
+    this.body = 'Lorem ipsum dolor sit amet, consecteturt. ',
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(left: 8, right: 8, bottom: 8, top:8),
       decoration: BoxDecoration(
         color: context.theme.colorScheme.surfaceContainerHigh,
         borderRadius: BorderRadius.circular(15.0),
@@ -54,64 +53,60 @@ class ProjectCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Row(
-              children: [
-                Text(
-                  title,
-                  maxLines: 1,
-                  style: context.textTheme.titleLarge!.copyWith(
-                    color: context.theme.colorScheme.primary,
-                  ),
+            Container(
+              height: 100,
+              width: 360,
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.only(topRight: Radius.circular(12),topLeft: Radius.circular(12)
                 ),
-                const SizedBox(width: 85),
-
-              ],
+              ),
+              clipBehavior: Clip.antiAlias,
+              child: Image.network(
+                randomImage,
+                fit: BoxFit.fitWidth,
+              ),
             ),
-            const SizedBox(height: 8),
-            Row(
-              children: [
-                Container(
-                  width: 80,
-                  height: 80,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    maxLines: 1,
+                    style: context.textTheme.titleMedium!.copyWith(
+                      color: context.theme.colorScheme.primary,
+                    ),
                   ),
-                  clipBehavior: Clip.antiAlias,
-                  child: Image.network(
-                    randomImage,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                const SizedBox(width: 16),
-                Flexible(
-                  child: Text(
+                  const SizedBox(height: 8),
+                  Text(
                     body,
                     style: context.textTheme.bodyMedium!.copyWith(
                       color: context.theme.colorScheme.onSurface,
                     ),
-                    maxLines: 4,
+                    maxLines: 2,
                   ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 8),
-            Row(
-              children: [
-                Text(
-                  'Tempo dedicado',
-                  style: context.textTheme.labelLarge!.copyWith(
-                    color: context.theme.colorScheme.primary,
+                  const SizedBox(height: 8),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Tempo',
+                        style: context.textTheme.bodySmall!.copyWith(
+                          color: context.theme.colorScheme.primary,
+                        ),
+                      ),
+                      Text(
+                        '01:53:00',
+                        textAlign: TextAlign.center,
+                        style: context.textTheme.bodySmall!.copyWith(
+                          color: context.theme.colorScheme.primary,
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-                const SizedBox(width: 120),
-                Text(
-                  '01:53:00',
-                  textAlign: TextAlign.center,
-                  style: context.textTheme.titleLarge!.copyWith(
-                    color: context.theme.colorScheme.primary,
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           ],
         ),

@@ -142,6 +142,7 @@ extension TextThemeExtensions on BuildContext {
       'Roboto',
       baseTextTheme,
     );
+
     final displayTextTheme = GoogleFonts.getTextTheme(
       'Pacifico',
       baseTextTheme,
