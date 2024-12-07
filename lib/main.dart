@@ -1,8 +1,8 @@
-import 'package:crochetime/routing/router.dart';
-import 'package:crochetime/ui/core/themes/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'routing/router.dart';
+import 'ui/core/themes/theme.dart';
 import 'ui/core/ui/snackbar_helper.dart';
 
 void main() {
