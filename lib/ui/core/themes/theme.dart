@@ -122,29 +122,32 @@ class MaterialTheme {
         ),
         scaffoldBackgroundColor: colorScheme.surface,
         canvasColor: colorScheme.surface,
+        appBarTheme: AppBarTheme(
+          backgroundColor: colorScheme.primary,
+          foregroundColor: colorScheme.onPrimary,
+        ),
+        iconTheme: IconThemeData(color: colorScheme.primary),
       );
 }
 
-TextTheme createTextTheme(
-  BuildContext context, {
-  required String bodyFontString,
-  required String displayFontString,
-}) {
-  final baseTextTheme = Theme.of(context).textTheme;
-  final bodyTextTheme = GoogleFonts.getTextTheme(
-    bodyFontString,
-    baseTextTheme,
-  );
-  final displayTextTheme = GoogleFonts.getTextTheme(
-    displayFontString,
-    baseTextTheme,
-  );
-  return displayTextTheme.copyWith(
-    bodyLarge: bodyTextTheme.bodyLarge,
-    bodyMedium: bodyTextTheme.bodyMedium,
-    bodySmall: bodyTextTheme.bodySmall,
-    labelLarge: bodyTextTheme.labelLarge,
-    labelMedium: bodyTextTheme.labelMedium,
-    labelSmall: bodyTextTheme.labelSmall,
-  );
+extension TextThemeExtensions on BuildContext {
+  TextTheme get textTheme {
+    final baseTextTheme = Theme.of(this).textTheme;
+    final bodyTextTheme = GoogleFonts.getTextTheme(
+      'Roboto',
+      baseTextTheme,
+    );
+    final displayTextTheme = GoogleFonts.getTextTheme(
+      'Pacifico',
+      baseTextTheme,
+    );
+    return displayTextTheme.copyWith(
+      bodyLarge: bodyTextTheme.bodyLarge,
+      bodyMedium: bodyTextTheme.bodyMedium,
+      bodySmall: bodyTextTheme.bodySmall,
+      labelLarge: bodyTextTheme.labelLarge,
+      labelMedium: bodyTextTheme.labelMedium,
+      labelSmall: bodyTextTheme.labelSmall,
+    );
+  }
 }
