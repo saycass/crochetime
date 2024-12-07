@@ -9,9 +9,7 @@ extension ContextExtension on BuildContext {
 }
 
 extension BuildContextExtension on BuildContext {
-  ThemeData get theme => Theme.of(this);
+  TextTheme get textTheme => Theme.of(this).textTheme;
 
-  TextTheme get textTheme => theme.textTheme;
-
-  ColorScheme get colorScheme => theme.colorScheme;
+  ColorScheme get colorScheme => Theme.of(this).colorScheme;
 }

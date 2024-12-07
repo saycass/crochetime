@@ -18,7 +18,7 @@ class ProgressCard extends StatelessWidget {
     return Container(
       padding: Dimension.small.allPadding,
       decoration: BoxDecoration(
-        color: context.theme.colorScheme.surfaceContainerHigh,
+        color: context.colorScheme.surfaceContainerHigh,
         borderRadius: Dimension.small.circularBorder,
       ),
       child: Column(
@@ -26,14 +26,14 @@ class ProgressCard extends StatelessWidget {
           Text(
             label,
             style: context.textTheme.labelLarge!.copyWith(
-              color: context.theme.colorScheme.onSurface,
+              color: context.colorScheme.onSurface,
             ),
           ),
           Text(
             value,
             textAlign: TextAlign.center,
             style: context.textTheme.titleLarge!.copyWith(
-              color: context.theme.colorScheme.primary,
+              color: context.colorScheme.primary,
             ),
           ),
         ],

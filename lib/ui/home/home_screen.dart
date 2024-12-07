@@ -74,7 +74,7 @@ class TitledHorizontalList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: context.theme.colorScheme.surfaceContainerHigh,
+        color: context.colorScheme.surfaceContainerHigh,
         borderRadius: BorderRadius.circular(15.0),
       ),
       child: Padding(

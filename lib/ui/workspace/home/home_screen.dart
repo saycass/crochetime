@@ -42,7 +42,7 @@ class ProjectCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: context.theme.colorScheme.surfaceContainerHigh,
+        color: context.colorScheme.surfaceContainerHigh,
         borderRadius: BorderRadius.circular(15.0),
       ),
       child: InkWell(
@@ -57,8 +57,9 @@ class ProjectCard extends StatelessWidget {
               height: 100,
               width: 360,
               decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(topRight: Radius.circular(12),topLeft: Radius.circular(12)
-                ),
+                borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(12),
+                    topLeft: Radius.circular(12)),
               ),
               clipBehavior: Clip.antiAlias,
               child: Image.network(
@@ -75,14 +76,14 @@ class ProjectCard extends StatelessWidget {
                     title,
                     maxLines: 1,
                     style: context.textTheme.titleMedium!.copyWith(
-                      color: context.theme.colorScheme.primary,
+                      color: context.colorScheme.primary,
                     ),
                   ),
                   const SizedBox(height: 8),
                   Text(
                     body,
                     style: context.textTheme.bodyMedium!.copyWith(
-                      color: context.theme.colorScheme.onSurface,
+                      color: context.colorScheme.onSurface,
                     ),
                     maxLines: 2,
                   ),
@@ -93,14 +94,14 @@ class ProjectCard extends StatelessWidget {
                       Text(
                         'Tempo',
                         style: context.textTheme.bodySmall!.copyWith(
-                          color: context.theme.colorScheme.primary,
+                          color: context.colorScheme.primary,
                         ),
                       ),
                       Text(
                         '01:53:00',
                         textAlign: TextAlign.center,
                         style: context.textTheme.bodySmall!.copyWith(
-                          color: context.theme.colorScheme.primary,
+                          color: context.colorScheme.primary,
                         ),
                       ),
                     ],
