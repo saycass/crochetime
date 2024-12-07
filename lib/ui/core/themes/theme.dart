@@ -112,22 +112,27 @@ class MaterialTheme {
 
   ThemeData dark() => theme(darkScheme());
 
-  ThemeData theme(ColorScheme colorScheme) => ThemeData(
-        useMaterial3: true,
-        brightness: colorScheme.brightness,
-        colorScheme: colorScheme,
-        textTheme: textTheme.apply(
-          bodyColor: colorScheme.onSurface,
-          displayColor: colorScheme.onSurface,
-        ),
-        scaffoldBackgroundColor: colorScheme.surface,
-        canvasColor: colorScheme.surface,
-        appBarTheme: AppBarTheme(
-          backgroundColor: colorScheme.primary,
-          foregroundColor: colorScheme.onPrimary,
-        ),
-        iconTheme: IconThemeData(color: colorScheme.primary),
-      );
+  ThemeData theme(ColorScheme colorScheme) {
+    final iconThemeData = IconThemeData(color: colorScheme.primary);
+    return ThemeData(
+      useMaterial3: true,
+      brightness: colorScheme.brightness,
+      colorScheme: colorScheme,
+      textTheme: textTheme.apply(
+        bodyColor: colorScheme.onSurface,
+        displayColor: colorScheme.onSurface,
+      ),
+      scaffoldBackgroundColor: colorScheme.surface,
+      canvasColor: colorScheme.surface,
+      appBarTheme: AppBarTheme(
+        backgroundColor: colorScheme.surface,
+        foregroundColor: colorScheme.onSurface,
+        surfaceTintColor: colorScheme.surfaceTint,
+        iconTheme: iconThemeData,
+      ),
+      iconTheme: iconThemeData,
+    );
+  }
 }
 
 extension TextThemeExtensions on BuildContext {

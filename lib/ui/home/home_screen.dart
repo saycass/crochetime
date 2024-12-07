@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:crochetime/ui/extensions/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -116,7 +118,7 @@ class TitledHorizontalList extends StatelessWidget {
                     ),
                     clipBehavior: Clip.antiAlias,
                     child: Image.network(
-                      'https://s2.glbimg.com/IB4h-3P4DgWeDcJCiOMRkYhPCc0=/512x320/smart/e.glbimg.com/og/ed/f/original/2012/12/11/croche_tendencia_paris_02.jpg',
+                      randomImage,
                       fit: BoxFit.cover,
                     ),
                   );
@@ -128,6 +130,17 @@ class TitledHorizontalList extends StatelessWidget {
       ),
     );
   }
+}
+
+String get randomImage {
+  final random = Random();
+  final images = [
+    'https://s2.glbimg.com/IB4h-3P4DgWeDcJCiOMRkYhPCc0=/512x320/smart/e.glbimg.com/og/ed/f/original/2012/12/11/croche_tendencia_paris_02.jpg',
+    'https://images.tcdn.com.br/img/img_prod/734193/amigurumi_polvo_de_croche_7_1_aff2fb4efaafd58c91da55178669aee6.jpg',
+    'https://cdn.sistemawbuy.com.br/arquivos/d05cc51b206ca91ff431904b450f4829/blogitens/cesta-de-bolas-de-la-e-mulher-tecelagem-657394d7154fb1.jpg',
+    'https://clubepaineiras.org.br/wp-content/uploads/2022/10/croche-clothesline-800x450.jpg',
+  ];
+  return images[random.nextInt(images.length)];
 }
 
 class Note extends StatelessWidget {

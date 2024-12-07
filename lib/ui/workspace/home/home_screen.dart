@@ -1,7 +1,9 @@
+import 'package:crochetime/ui/extensions/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../routing/routes.dart';
+import '../../home/home_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -9,9 +11,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Meus Projetos'),
-      ),
+      appBar: AppBar(),
       body: ListView.builder(
         itemCount: 10,
         itemBuilder: (BuildContext context, int index) {
@@ -40,11 +40,11 @@ class ProjectCard extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 14),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: context.theme.colorScheme.surfaceContainerHigh,
         borderRadius: BorderRadius.circular(15.0),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.1),
+            color: context.theme.colorScheme.shadow.withOpacity(0.2),
             offset: const Offset(0, 2),
             blurRadius: 6,
           ),
@@ -61,44 +61,60 @@ class ProjectCard extends StatelessWidget {
             Text(
               title,
               maxLines: 1,
-              style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
+              style: context.textTheme.titleLarge!.copyWith(
+                color: context.theme.colorScheme.primary,
               ),
             ),
-            const SizedBox(height: 4),
+            const SizedBox(height: 16),
             Text(
               body,
-              style: TextStyle(
-                color: Colors.grey.withOpacity(.90),
-                fontSize: 14,
+              style: context.textTheme.bodyMedium!.copyWith(
+                color: context.theme.colorScheme.onSurface,
               ),
             ),
             const SizedBox(height: 8),
             Container(
-              padding: const EdgeInsets.all(4),
+              width: 400,
+              height: 200,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(25.0),
-                color: Colors.grey.withOpacity(.20),
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.2),
+                    blurRadius: 6,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
               ),
-              child: const Row(
+              clipBehavior: Clip.antiAlias,
+              child: Image.network(
+                randomImage,
+                fit: BoxFit.cover,
+              ),
+            ),
+            const SizedBox(height: 8),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 4),
+              child: Row(
                 children: [
-                  CircleAvatar(
-                    backgroundColor: Colors.orange,
+                  const CircleAvatar(
                     child: Icon(Icons.timelapse),
                   ),
-                  SizedBox(width: 8),
+                  const SizedBox(width: 8),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Tempo dedicado', style: TextStyle(fontSize: 14)),
+                      Text(
+                        'Tempo dedicado',
+                        style: context.textTheme.labelLarge!.copyWith(
+                          color: context.theme.colorScheme.onSurface,
+                        ),
+                      ),
                       Text(
                         '01:53:00',
                         textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.orange,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
+                        style: context.textTheme.titleLarge!.copyWith(
+                          color: context.theme.colorScheme.primary,
                         ),
                       ),
                     ],
