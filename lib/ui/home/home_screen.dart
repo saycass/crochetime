@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../routing/routes.dart';
+import '../core/themes/dimension.dart';
 import '../extensions/extensions.dart';
 import 'home_viewmodel.dart';
 
@@ -19,7 +20,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: Dimension.small.allPadding,
         child: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,10 +76,10 @@ class TitledHorizontalList extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: context.colorScheme.surfaceContainerHigh,
-        borderRadius: BorderRadius.circular(15.0),
+        borderRadius: Dimension.small.circularBorder,
       ),
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: Dimension.small.allPadding,
         child: Column(
           children: [
             InkWell(
@@ -105,9 +106,9 @@ class TitledHorizontalList extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return Container(
                     width: 200,
-                    margin: const EdgeInsets.symmetric(horizontal: 8.0),
+                    margin: Dimension.smaller.horizontalPadding,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: Dimension.small.circularBorder,
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black.withOpacity(0.2),
@@ -154,10 +155,10 @@ class Note extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.all(16),
+      padding: Dimension.small.allPadding,
       decoration: BoxDecoration(
         color: context.colorScheme.tertiaryContainer,
-        borderRadius: BorderRadius.circular(15.0),
+        borderRadius: Dimension.small.circularBorder,
       ),
       child: Row(
         children: [

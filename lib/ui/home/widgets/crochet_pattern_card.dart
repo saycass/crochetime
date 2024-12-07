@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../routing/routes.dart';
+import '../../core/themes/dimension.dart';
 
 class CrochetPatternCard extends StatelessWidget {
   final String title;
@@ -21,7 +22,7 @@ class CrochetPatternCard extends StatelessWidget {
       ),
       child: Card(
         child: Padding(
-          padding: const EdgeInsets.all(4.0),
+          padding: Dimension.smallest.allPadding,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
