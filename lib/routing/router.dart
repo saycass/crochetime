@@ -39,7 +39,8 @@ final routerConfig = GoRouter(
                   return const workspace.DetailsScreen();
                 },
               ),
-            ]),
+          ],
+        ),
         GoRoute(
             path: Routes.explore,
             builder: (context, state) {
@@ -50,8 +51,10 @@ final routerConfig = GoRouter(
                   path: ':id',
                   builder: (context, state) {
                     return const explore.DetailsScreen();
-                  })
-            ]),
+              },
+            ),
+          ],
+        ),
       ],
     ),
   ],

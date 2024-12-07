@@ -11,7 +11,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Hora do Crochê ",
+          'Hora do Crochê ',
         ),
       ),
       body: RefreshIndicator(
@@ -20,7 +20,7 @@ class HomeScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           itemCount: 6,
           itemBuilder: (BuildContext context, int index) {
-            var card = const CrochetPatternCard(
+            const card = CrochetPatternCard(
               title: 'Cachecol',
               description: 'Cachecol de crochê',
             );

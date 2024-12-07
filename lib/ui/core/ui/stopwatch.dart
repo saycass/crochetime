@@ -106,7 +106,7 @@ class _StopWatchState extends State<StopWatch> {
                 height: MediaQuery.of(context).size.width * 0.04,
               ),
               Text(
-                "Tempo de hoje: $hours:$minutes:$seconds",
+                'Tempo de hoje: $hours:$minutes:$seconds',
               ),
             ],
           ),
