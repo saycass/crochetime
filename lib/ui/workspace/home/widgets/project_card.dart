@@ -52,16 +52,13 @@ class ProjectCard extends StatelessWidget {
                       Text(
                         title,
                         maxLines: 1,
-                        style: context.textTheme.titleMedium!.copyWith(
-                          color: context.colorScheme.primary,
+                        style: context.textTheme.titleLarge!.copyWith(
                         ),
                       ),
                       const SizedBox(height: 8),
                       Text(
                         body,
                         style: context.textTheme.bodyMedium!.copyWith(
-                          color: context.colorScheme.primary,
-                          fontWeight: FontWeight.bold,
                         ),
                         maxLines: 2,
                       ),
@@ -72,7 +69,6 @@ class ProjectCard extends StatelessWidget {
                           Text(
                             'Ultima atualização',
                             style: context.textTheme.bodyMedium!.copyWith(
-                              color: context.colorScheme.tertiary,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -80,7 +76,6 @@ class ProjectCard extends StatelessWidget {
                             '10/03/2024',
                             textAlign: TextAlign.center,
                             style: context.textTheme.bodyMedium!.copyWith(
-                              color: context.colorScheme.tertiary,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -106,10 +101,10 @@ class ProjectCard extends StatelessWidget {
                     child: Padding(
                       padding: Dimension.smaller.horizontalPadding,
                       child: Text(
-                        '01:53:00',
-                        style: TextStyle(
+                        'Em progresso',
+                        style: context.textTheme.bodySmall!.copyWith(
                           color: context.colorScheme.onTertiaryContainer,
-                        ),
+                      ),
                       ),
                     ),
                   ),
