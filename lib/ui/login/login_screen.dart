@@ -118,7 +118,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       builder: (_, isValid, __) {
                         return FilledButton(
                           onPressed: () {
-                            context.go(Routes.home.complete);
+                            context.go(Routes.root.complete);
                             emailController.clear();
                             passwordController.clear();
                           },
