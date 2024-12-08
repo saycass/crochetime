@@ -151,7 +151,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          context.go(Routes.workspaceTimer.withId('id'));
+          context.go(Routes.timerDetails.withId('id'));
         },
         child: const Icon(Icons.timer),
       ),

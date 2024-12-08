@@ -42,6 +42,8 @@ class Destination {
 
 const destinations = [
   Destination(label: 'Explorar', icon: Icons.search_outlined),
+  Destination(label: 'Wishlist', icon: Icons.favorite_border_outlined),
   Destination(label: 'Home', icon: Icons.home_outlined),
   Destination(label: 'Workspace', icon: Icons.workspaces_outlined),
+  Destination(label: 'Timer', icon: Icons.watch_outlined),
 ];

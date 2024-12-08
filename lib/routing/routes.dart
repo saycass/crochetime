@@ -4,12 +4,14 @@ abstract final class Routes {
 
   /// Wishlist routes
   static const wishlist = Route('/wishlist', root);
-  static const wishlistDetails = Route('/:id', wishlist);
 
   /// Workspace routes
   static const workspace = Route('/workspace', root);
   static const workspaceDetails = Route('/:id', workspace);
-  static const workspaceTimer = Route('/timer', workspaceDetails);
+
+  /// Timer routes
+  static const timer = Route('/timer', root);
+  static const timerDetails = Route('/:id', timer);
 
   /// Explore routes
   static const explore = Route('/explore', root);

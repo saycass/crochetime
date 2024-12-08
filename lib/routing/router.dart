@@ -33,6 +33,17 @@ final routerConfig = GoRouter(
           observers: [AppRouteObserver()],
           routes: [
             GoRoute(
+              path: Routes.wishlist.path,
+              builder: (context, state) {
+                return const Placeholder();
+              },
+            ),
+          ],
+        ),
+        StatefulShellBranch(
+          observers: [AppRouteObserver()],
+          routes: [
+            GoRoute(
               path: Routes.root.path,
               builder: (context, state) {
                 return home.HomeScreen(
@@ -56,14 +67,26 @@ final routerConfig = GoRouter(
                   builder: (context, state) {
                     return const workspace.DetailsScreen();
                   },
-                  routes: [
-                    GoRoute(
-                      path: Routes.workspaceTimer.path,
-                      builder: (context, state) {
-                        return const workspace.TimerScreen();
-                      },
-                    ),
-                  ],
+                ),
+              ],
+            ),
+          ],
+        ),
+        StatefulShellBranch(
+          observers: [AppRouteObserver()],
+          routes: [
+            GoRoute(
+              path: Routes.timer.path,
+              builder: (context, state) {
+                return const workspace.TimerScreen();
+              },
+              routes: [
+                GoRoute(
+                  path: Routes.timerDetails.path,
+                  builder: (context, state) {
+                    final id = state.pathParameters['id'];
+                    return workspace.TimerScreen(id: id);
+                  },
                 ),
               ],
             ),
