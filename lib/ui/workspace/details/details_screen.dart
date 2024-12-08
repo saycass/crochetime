@@ -23,12 +23,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
             expandedHeight: 300,
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
-              title: Text(
-                'Projeto 1',
-                style: context.textTheme.titleLarge!.copyWith(
-                  color: context.colorScheme.primary,
-                ),
-              ),
+              title: const Text('Projeto 1'),
               collapseMode: CollapseMode.pin,
               background: ClipRRect(
                 borderRadius: Dimension.large.circularBottomBorder,

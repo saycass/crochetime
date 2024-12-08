@@ -113,7 +113,6 @@ class MaterialTheme {
   ThemeData dark() => theme(darkScheme());
 
   ThemeData theme(ColorScheme colorScheme) {
-    final iconThemeData = IconThemeData(color: colorScheme.primary);
     return ThemeData(
       useMaterial3: true,
       brightness: colorScheme.brightness,
@@ -128,9 +127,7 @@ class MaterialTheme {
         backgroundColor: colorScheme.surface,
         foregroundColor: colorScheme.onSurface,
         surfaceTintColor: colorScheme.surfaceTint,
-        iconTheme: iconThemeData,
       ),
-      iconTheme: iconThemeData,
     );
   }
 }
