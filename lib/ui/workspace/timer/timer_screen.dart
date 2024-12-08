@@ -49,7 +49,7 @@ class _TimerScreenState extends State<TimerScreen> {
                         TimeKeeper(stopwatch: _stopwatch),
                         Dimension.small.vertical,
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Column(
                               children: [
@@ -68,7 +68,6 @@ class _TimerScreenState extends State<TimerScreen> {
                                 ),
                               ],
                             ),
-                            const Spacer(),
                             Column(
                               children: [
                                 Text(
