@@ -52,34 +52,18 @@ class ProjectCard extends StatelessWidget {
                       Text(
                         title,
                         maxLines: 1,
-                        style: context.textTheme.titleLarge!.copyWith(
-                        ),
+                        style: context.textTheme.titleMedium!,
                       ),
-                      const SizedBox(height: 8),
+                      Dimension.smaller.vertical,
                       Text(
                         body,
-                        style: context.textTheme.bodyMedium!.copyWith(
-                        ),
+                        style: context.textTheme.labelMedium!,
                         maxLines: 2,
                       ),
-                      const SizedBox(height: 8),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Ultima atualização',
-                            style: context.textTheme.bodyMedium!.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text(
-                            '10/03/2024',
-                            textAlign: TextAlign.center,
-                            style: context.textTheme.bodyMedium!.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
+                      Dimension.smallest.vertical,
+                      Text(
+                        '10/03/2024',
+                        style: context.textTheme.labelSmall,
                       ),
                     ],
                   ),
@@ -104,7 +88,7 @@ class ProjectCard extends StatelessWidget {
                         'Em progresso',
                         style: context.textTheme.bodySmall!.copyWith(
                           color: context.colorScheme.onTertiaryContainer,
-                      ),
+                        ),
                       ),
                     ),
                   ),
