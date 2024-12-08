@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../ui/core/ui/bottom_nav_bar.dart';
 import '../ui/explore/explore.dart' as explore;
 import '../ui/home/home.dart' as home;
+import '../ui/timer/timer.dart' as timer;
 import '../ui/wishlist/wishlist.dart' as wishlist;
 import '../ui/workspace/workspace.dart' as workspace;
 import 'routes.dart';
@@ -85,14 +86,15 @@ final routerConfig = GoRouter(
             GoRoute(
               path: Routes.timer.path,
               builder: (context, state) {
-                return const workspace.TimerScreen();
+                return const timer.NoProjectScreen();
               },
               routes: [
                 GoRoute(
                   path: Routes.timerDetails.path,
                   builder: (context, state) {
                     final id = state.pathParameters['id'];
-                    return workspace.TimerScreen(id: id);
+                    assert(id != null, 'The project id is required');
+                    return timer.TimerScreen(id: id as String);
                   },
                 ),
               ],

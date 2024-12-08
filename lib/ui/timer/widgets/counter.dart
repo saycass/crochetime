@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/themes/dimension.dart';
-import '../../../extensions/extensions.dart';
+import '../../core/themes/dimension.dart';
+import '../../extensions/extensions.dart';
 
 class Counter extends StatelessWidget {
   final int value;

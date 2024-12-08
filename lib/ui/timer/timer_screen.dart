@@ -1,18 +1,17 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 
-import '../../core/themes/dimension.dart';
-import '../../extensions/extensions.dart';
+import '../core/themes/dimension.dart';
+import '../extensions/extensions.dart';
 import 'widgets/counter.dart';
+import 'widgets/stop_watch.dart';
 
 class TimerScreen extends StatefulWidget {
   const TimerScreen({
     super.key,
-    this.id,
+    required this.id,
   });
 
-  final String? id;
+  final String id;
 
   @override
   State<TimerScreen> createState() => _TimerScreenState();
@@ -32,29 +31,6 @@ class _TimerScreenState extends State<TimerScreen> {
 
   @override
   Widget build(BuildContext context) {
-    if (widget.id == null) {
-      return Scaffold(
-        appBar: AppBar(
-          title: const Text('Timer'),
-        ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Você precisa selecionar um projeto para iniciar o timer.',
-              style: context.textTheme.headlineMedium,
-              textAlign: TextAlign.center,
-            ),
-            Dimension.large.vertical,
-            Icon(
-              Icons.watch_later_outlined,
-              size: Dimension.extraLarge.size,
-            ),
-          ],
-        ),
-      );
-    }
-
     return CustomScrollView(
       slivers: [
         SliverAppBar(
@@ -73,7 +49,7 @@ class _TimerScreenState extends State<TimerScreen> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Dimension.extraLarge.vertical,
-                      TimeKeeper(stopwatch: _stopwatch),
+                      StopWatch(stopwatch: _stopwatch),
                       Dimension.small.vertical,
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -185,90 +161,6 @@ class _TimerScreenState extends State<TimerScreen> {
               ),
               Dimension.larger.vertical,
             ],
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class TimeKeeper extends StatefulWidget {
-  final Stopwatch stopwatch;
-
-  const TimeKeeper({
-    super.key,
-    required this.stopwatch,
-  });
-
-  @override
-  State<TimeKeeper> createState() => _TimeKeeperState();
-}
-
-class _TimeKeeperState extends State<TimeKeeper> {
-  final _elapsedTime = ValueNotifier(Duration.zero);
-  final _isRunning = ValueNotifier<bool>(false);
-  Timer? _timer;
-
-  get _stopwatch => widget.stopwatch;
-
-  void _start() {
-    _isRunning.value = true;
-    _stopwatch.start();
-    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      _elapsedTime.value = _stopwatch.elapsed;
-    });
-  }
-
-  void _stop() {
-    _isRunning.value = false;
-    _stopwatch.stop();
-    _timer?.cancel();
-  }
-
-  @override
-  void dispose() {
-    _elapsedTime.dispose();
-    _isRunning.dispose();
-    _timer?.cancel();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: Dimension.small.bottomPadding,
-          child: ValueListenableBuilder(
-            valueListenable: _elapsedTime,
-            builder: (context, value, _) {
-              final hours = value.inHours.toString().padLeft(2, '0');
-              final minutes =
-                  value.inMinutes.remainder(60).toString().padLeft(2, '0');
-              final seconds =
-                  value.inSeconds.remainder(60).toString().padLeft(2, '0');
-              return Text(
-                '$hours:$minutes:$seconds',
-                style: context.textTheme.displayLarge!.copyWith(
-                  color: context.colorScheme.primary,
-                ),
-              );
-            },
-          ),
-        ),
-        IconButton(
-          onPressed: () {
-            if (_isRunning.value) return _stop();
-            _start();
-          },
-          icon: ValueListenableBuilder(
-            valueListenable: _isRunning,
-            builder: (_, value, __) {
-              final icon = value
-                  ? Icons.pause_circle_outline_rounded
-                  : Icons.play_circle_outline_rounded;
-              return Icon(icon, size: Dimension.extraLarge.size);
-            },
           ),
         ),
       ],
