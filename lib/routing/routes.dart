@@ -1,21 +1,37 @@
 abstract final class Routes {
   /// Home routes
-  static const home = '/';
-
-  /// Auth routes
-  static const login = '/login';
-  static const register = '/register';
+  static const home = Route('/');
 
   /// Workspace routes
-  static const workspace = '/workspace';
-  static const timer = '/timer';
-
-  static String workspaceDetails(String id) => '$workspace/$id';
-
-  static String workspaceTimer(String id) => '$workspace/$id/timer';
+  static const workspace = Route('/workspace', home);
+  static const workspaceDetails = Route('/:id', workspace);
+  static const workspaceTimer = Route('/timer', workspaceDetails);
 
   /// Explore routes
-  static const explore = '/explore';
+  static const explore = Route('/explore', home);
+  static const exploreDetails = Route('/:id', explore);
+}
 
-  static String exploreDetails(String id) => '$explore/$id';
+class Route {
+  final String path;
+  final Route? root;
+
+  const Route(
+    this.path, [
+    this.root,
+  ]);
+
+  String get complete {
+    final root = this.root?.complete ?? '';
+    return root.endsWith('/')
+        ? '$root${path.replaceFirst('/', '')}'
+        : '$root$path';
+  }
+
+  String withId(String value) {
+    return complete.replaceAll(':id', value);
+  }
+
+  @override
+  String toString() => complete;
 }

@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import '../../../../routing/routes.dart';
 import '../../../core/themes/dimension.dart';
 import '../../../extensions/extensions.dart';
-import '../../../home/home_screen.dart';
 
 class ProjectCard extends StatelessWidget {
   final String title;
@@ -25,7 +24,7 @@ class ProjectCard extends StatelessWidget {
       ),
       child: InkWell(
         onTap: () {
-          context.go(Routes.workspaceDetails('mock'));
+          context.go(Routes.workspaceDetails.withId('id'));
         },
         child: Stack(
           children: [

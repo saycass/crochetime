@@ -118,7 +118,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       builder: (_, isValid, __) {
                         return FilledButton(
                           onPressed: () {
-                            context.go(Routes.home);
+                            context.go(Routes.home.complete);
                             emailController.clear();
                             passwordController.clear();
                           },
@@ -140,7 +140,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 const SizedBox(width: 4),
                 TextButton(
-                  onPressed: () => context.go(Routes.register),
+                  onPressed: () {
+                    // context.go(Routes.register.complete);
+                  },
                   child: const Text('Crie uma conta'),
                 ),
               ],

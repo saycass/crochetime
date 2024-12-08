@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import '../../../routing/routes.dart';
 import '../../core/themes/dimension.dart';
 import '../../extensions/extensions.dart';
-import '../../home/home_screen.dart';
 import 'widgets/progress_card.dart';
 
 class DetailsScreen extends StatefulWidget {
@@ -152,7 +151,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          context.go(Routes.workspaceTimer('mock'));
+          context.go(Routes.workspaceTimer.withId('id'));
         },
         child: const Icon(Icons.timer),
       ),
