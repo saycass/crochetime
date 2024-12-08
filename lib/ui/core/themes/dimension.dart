@@ -53,4 +53,16 @@ class Dimension {
         bottomLeft: Radius.circular(_value),
         bottomRight: Radius.circular(_value),
       );
+
+  BorderRadius get circularLeftBorder => BorderRadius.only(
+        topLeft: Radius.circular(_value),
+        bottomLeft: Radius.circular(_value),
+      );
+
+  BorderRadius get circularRightBorder => BorderRadius.only(
+        topRight: Radius.circular(_value),
+        bottomRight: Radius.circular(_value),
+      );
+
+  double get size => _value;
 }
