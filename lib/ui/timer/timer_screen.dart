@@ -40,8 +40,7 @@ class _TimerScreenState extends State<TimerScreen> {
       body: Column(
         children: [
           Container(
-            padding: Dimension.larger.horizontalPadding +
-                Dimension.large.verticalPadding,
+            padding: Dimension.larger.horizontalPadding,
             decoration: BoxDecoration(
               borderRadius: Dimension.large.circularBottomBorder,
               color: context.colorScheme.surfaceContainer,
@@ -49,10 +48,11 @@ class _TimerScreenState extends State<TimerScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
+                Dimension.medium.vertical,
                 StopWatch(stopwatch: _stopwatch),
-                Dimension.small.vertical,
+                Dimension.medium.vertical,
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Column(
                       children: [
@@ -65,9 +65,7 @@ class _TimerScreenState extends State<TimerScreen> {
                         Text(
                           '00:00:00',
                           textAlign: TextAlign.center,
-                          style: context.textTheme.titleLarge!.copyWith(
-                            color: context.colorScheme.primary,
-                          ),
+                          style: context.textTheme.titleLarge,
                         ),
                       ],
                     ),
@@ -82,14 +80,13 @@ class _TimerScreenState extends State<TimerScreen> {
                         Text(
                           '00:00:00',
                           textAlign: TextAlign.center,
-                          style: context.textTheme.titleLarge!.copyWith(
-                            color: context.colorScheme.primary,
-                          ),
+                          style: context.textTheme.titleLarge,
                         ),
                       ],
                     ),
                   ],
                 ),
+                Dimension.medium.vertical,
               ],
             ),
           ),
@@ -97,14 +94,13 @@ class _TimerScreenState extends State<TimerScreen> {
             child: CustomScrollView(
               slivers: [
                 SliverFillRemaining(
+                  hasScrollBody: false,
                   child: Column(
                     children: [
-                      Dimension.larger.vertical,
+                      Dimension.large.vertical,
                       Text(
                         'Rodadas',
-                        style: context.textTheme.titleLarge!.copyWith(
-                          color: context.colorScheme.primary,
-                        ),
+                        style: context.textTheme.titleLarge!,
                       ),
                       Dimension.small.vertical,
                       ValueListenableBuilder(
@@ -125,9 +121,7 @@ class _TimerScreenState extends State<TimerScreen> {
                       Dimension.larger.vertical,
                       Text(
                         'Pontos',
-                        style: context.textTheme.titleLarge!.copyWith(
-                          color: context.colorScheme.primary,
-                        ),
+                        style: context.textTheme.titleLarge!,
                       ),
                       Dimension.small.vertical,
                       ValueListenableBuilder(

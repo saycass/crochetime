@@ -67,8 +67,7 @@ class Counter extends StatelessWidget {
               child: Center(
                 child: Text(
                   value.toString(),
-                  style: context.textTheme.bodyLarge!.copyWith(
-                    color: context.colorScheme.primary,
+                  style: context.textTheme.bodyMedium!.copyWith(
                     fontSize: Dimension.medium.size,
                   ),
                 ),

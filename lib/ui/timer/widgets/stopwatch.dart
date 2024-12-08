@@ -27,7 +27,7 @@ class _StopWatchState extends State<StopWatch> {
   void _start() {
     _isRunning.value = true;
     _stopwatch.start();
-    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+    _timer = Timer.periodic(const Duration(milliseconds: 100), (timer) {
       _elapsedTime.value = _stopwatch.elapsed;
     });
   }
@@ -48,36 +48,81 @@ class _StopWatchState extends State<StopWatch> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Padding(
-          padding: Dimension.small.bottomPadding,
-          child: ValueListenableBuilder(
-            valueListenable: _elapsedTime,
-            builder: (context, value, _) {
-              return Text(
-                value.formatted,
-                style: context.textTheme.displayLarge!.copyWith(
-                  color: context.colorScheme.primary,
+        SizedBox(
+          height: 164,
+          width: 170,
+          child: Stack(
+            children: [
+              Center(
+                child: Padding(
+                  padding: Dimension.small.bottomPadding,
+                  child: ValueListenableBuilder(
+                    valueListenable: _elapsedTime,
+                    builder: (context, value, _) {
+                      return Text(
+                        value.formatted,
+                        style: context.textTheme.displaySmall,
+                      );
+                    },
+                  ),
                 ),
-              );
-            },
-          ),
-        ),
-        IconButton(
-          onPressed: () {
-            if (_isRunning.value) return _stop();
-            _start();
-          },
-          icon: ValueListenableBuilder(
-            valueListenable: _isRunning,
-            builder: (_, value, __) {
-              final icon = value
-                  ? Icons.pause_circle_outline_rounded
-                  : Icons.play_circle_outline_rounded;
-              return Icon(icon, size: Dimension.extraLarge.size);
-            },
+              ),
+              Center(
+                child: ValueListenableBuilder(
+                  valueListenable: _isRunning,
+                  builder: (context, value, child) {
+                    return AnimatedSwitcher(
+                      duration: const Duration(milliseconds: 300),
+                      child: value ? SizedBox.shrink(key: UniqueKey()) : child,
+                    );
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: context.colorScheme.surfaceContainer,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Icon(
+                      Icons.play_circle,
+                      size: Dimension.extraLarge.size,
+                      shadows: [
+                        BoxShadow(
+                          color: context.colorScheme.shadow.withOpacity(0.5),
+                          offset: const Offset(0, 2),
+                          blurRadius: 10,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              Center(
+                child: SizedBox(
+                  height: double.maxFinite,
+                  width: double.maxFinite,
+                  child: ValueListenableBuilder(
+                    valueListenable: _elapsedTime,
+                    builder: (context, value, _) {
+                      return GestureDetector(
+                        onTap: () {
+                          if (_isRunning.value) return _stop();
+                          _start();
+                        },
+                        child: CircularProgressIndicator(
+                          value: (value.inMilliseconds % 60000) / 60000,
+                          strokeWidth: 10,
+                          valueColor: AlwaysStoppedAnimation(
+                            context.colorScheme.primary,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ],
