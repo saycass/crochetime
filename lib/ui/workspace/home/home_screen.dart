@@ -1,7 +1,9 @@
-import 'widgets/project_card.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../../routing/routes.dart';
 import '../../core/themes/dimension.dart';
-import '../../extensions/extensions.dart';
+import 'widgets/project_card.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -10,18 +12,16 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Seus projetos',
-          style: TextStyle(
-            color: context.colorScheme.primary,
-          ),
-        ),
+        title: const Text('Seus projetos'),
         actions: [
           IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.add_circle_sharp,
-              )),
+            onPressed: () {
+              context.go(Routes.workspaceCreate.complete);
+            },
+            icon: const Icon(
+              Icons.add_circle_sharp,
+            ),
+          ),
         ],
       ),
       body: ListView.builder(

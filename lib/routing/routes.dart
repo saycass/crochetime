@@ -8,6 +8,7 @@ abstract final class Routes {
   /// Workspace routes
   static const workspace = Route('/workspace', root);
   static const workspaceDetails = Route('/:id', workspace);
+  static const workspaceCreate = Route('/create', workspace);
 
   /// Timer routes
   static const timer = Route('/timer', root);

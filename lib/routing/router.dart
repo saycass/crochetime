@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../ui/core/ui/bottom_nav_bar.dart';
 import '../ui/explore/explore.dart' as explore;
 import '../ui/home/home.dart' as home;
+import '../ui/wishlist/wishlist.dart' as wishlist;
 import '../ui/workspace/workspace.dart' as workspace;
 import 'routes.dart';
 
@@ -35,7 +36,7 @@ final routerConfig = GoRouter(
             GoRoute(
               path: Routes.wishlist.path,
               builder: (context, state) {
-                return const Placeholder();
+                return const wishlist.HomeScreen();
               },
             ),
           ],
@@ -62,6 +63,12 @@ final routerConfig = GoRouter(
                 return const workspace.HomeScreen();
               },
               routes: [
+                GoRoute(
+                  path: Routes.workspaceCreate.path,
+                  builder: (context, state) {
+                    return const workspace.CreateScreen();
+                  },
+                ),
                 GoRoute(
                   path: Routes.workspaceDetails.path,
                   builder: (context, state) {

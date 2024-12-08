@@ -10,9 +10,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Hora do Crochê ',
-        ),
+        title: const Text('Explorar'),
       ),
       body: RefreshIndicator(
         onRefresh: () async {},
