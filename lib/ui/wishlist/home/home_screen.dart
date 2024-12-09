@@ -11,22 +11,40 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Wishlist')),
-      body: ListView.builder(
-        padding: Dimension.small.horizontalPadding,
-        itemCount: 8,
-        itemBuilder: (BuildContext context, int index) {
-          return Container(
-            margin: Dimension.smaller.verticalPadding,
-            child: const ListCard(
+      body: CustomScrollView(
+        slivers: [
+          const SliverAppBar(
+            title: Text('Wishlist'),
+            pinned: true,
+            floating: true,
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: Dimension.small.allPadding,
+              child: const TextField(
+                decoration: InputDecoration(
+                  prefixIcon: Icon(
+                    Icons.search,
+                    size: 20,
+                  ),
+                  border: OutlineInputBorder(),
+                  hintText: "Pesquisar item",
+                ),
+              ),
             ),
-          );
-        },
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-        },
-        child: const Icon(Icons.add),
+          ),
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (BuildContext context, int index) {
+                return Padding(
+                  padding: Dimension.smaller.allPadding,
+                  child: const ListCard(),
+                );
+              },
+              childCount: 7,
+            ),
+          ),
+        ],
       ),
     );
   }

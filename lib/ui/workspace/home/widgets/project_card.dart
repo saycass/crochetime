@@ -61,9 +61,19 @@ class ProjectCard extends StatelessWidget {
                         maxLines: 2,
                       ),
                       Dimension.smallest.vertical,
-                      Text(
-                        '10/03/2024',
-                        style: context.textTheme.labelSmall,
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.calendar_month_rounded,
+                            size: 16,
+                            color: context.colorScheme.tertiaryContainer,
+                          ),
+                          Dimension.smaller.horizontal,
+                          Text(
+                            '10/03/2024',
+                            style: context.textTheme.labelSmall,
+                          ),
+                        ],
                       ),
                     ],
                   ),
