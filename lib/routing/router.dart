@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -11,8 +10,8 @@ import '../ui/workspace/workspace.dart' as workspace;
 import 'routes.dart';
 
 final routerConfig = GoRouter(
-  observers: [AppRouteObserver()],
   initialLocation: Routes.root.path,
+  debugLogDiagnostics: true,
   routes: [
     StatefulShellRoute.indexedStack(
       builder: (_, __, navigationShell) => Scaffold(
@@ -21,7 +20,6 @@ final routerConfig = GoRouter(
       ),
       branches: [
         StatefulShellBranch(
-          observers: [AppRouteObserver()],
           routes: [
             GoRoute(
               path: Routes.explore.path,
@@ -32,7 +30,6 @@ final routerConfig = GoRouter(
           ],
         ),
         StatefulShellBranch(
-          observers: [AppRouteObserver()],
           routes: [
             GoRoute(
               path: Routes.wishlist.path,
@@ -43,7 +40,6 @@ final routerConfig = GoRouter(
           ],
         ),
         StatefulShellBranch(
-          observers: [AppRouteObserver()],
           routes: [
             GoRoute(
               path: Routes.root.path,
@@ -56,7 +52,6 @@ final routerConfig = GoRouter(
           ],
         ),
         StatefulShellBranch(
-          observers: [AppRouteObserver()],
           routes: [
             GoRoute(
               path: Routes.workspace.path,
@@ -81,7 +76,6 @@ final routerConfig = GoRouter(
           ],
         ),
         StatefulShellBranch(
-          observers: [AppRouteObserver()],
           routes: [
             GoRoute(
               path: Routes.timer.path,
@@ -105,25 +99,3 @@ final routerConfig = GoRouter(
     ),
   ],
 );
-
-class AppRouteObserver extends RouteObserver {
-  final List<String> _stack = [];
-
-  @override
-  void didPush(route, previousRoute) {
-    super.didPush(route, previousRoute);
-    if (kDebugMode) {
-      _stack.add(route.settings.name.toString());
-      print('History: $_stack');
-    }
-  }
-
-  @override
-  void didPop(route, previousRoute) {
-    super.didPop(route, previousRoute);
-    if (kDebugMode) {
-      _stack.removeLast();
-      print('History: $_stack');
-    }
-  }
-}
