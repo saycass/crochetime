@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../constants.dart';
 import '../../routing/routes.dart';
 import '../core/ui/custom_text_form_field.dart';
 import '../core/ui/gradient_background.dart';
+import '../core/utils/regex.dart';
 import 'login_viewmodel.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -69,7 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       validator: (value) {
                         return value!.isEmpty
                             ? 'Digite seu apelido'
-                            : AppRegex.emailRegex.hasMatch(value)
+                            : Regex.email.hasMatch(value)
                                 ? null
                                 : 'Apelido inválido';
                       },
@@ -87,7 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           validator: (value) {
                             return value!.isEmpty
                                 ? 'Digite sua senha'
-                                : AppRegex.passwordRegex.hasMatch(value)
+                                : Regex.password.hasMatch(value)
                                     ? null
                                     : 'Senha inválida';
                           },
