@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../core/themes/dimension.dart';
-import '../extensions/extensions.dart';
+import '../../core/themes/dimension.dart';
+import '../../extensions/extensions.dart';
 import 'widgets/counter.dart';
 import 'widgets/stopwatch.dart';
 
-class TimerScreen extends StatefulWidget {
-  const TimerScreen({
+class DetailsView extends StatefulWidget {
+  const DetailsView({
     super.key,
     required this.id,
   });
@@ -14,10 +14,10 @@ class TimerScreen extends StatefulWidget {
   final String id;
 
   @override
-  State<TimerScreen> createState() => _TimerScreenState();
+  State<DetailsView> createState() => _DetailsViewState();
 }
 
-class _TimerScreenState extends State<TimerScreen> {
+class _DetailsViewState extends State<DetailsView> {
   final _rounds = ValueNotifier<int>(0);
   final _points = ValueNotifier<int>(0);
   final _stopwatch = Stopwatch();

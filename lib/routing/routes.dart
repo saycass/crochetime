@@ -10,9 +10,9 @@ abstract final class Routes {
   static const workspaceDetails = Route('/:id', workspace);
   static const workspaceCreate = Route('/create', workspace);
 
-  /// Timer routes
-  static const timer = Route('/timer', root);
-  static const timerDetails = Route('/:id', timer);
+  /// StopWatch routes
+  static const stopwatch = Route('/stopwatch', root);
+  static const stopwatchDetails = Route('/:id', stopwatch);
 
   /// Explore routes
   static const explore = Route('/explore', root);

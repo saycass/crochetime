@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../ui/core/ui/bottom_nav_bar.dart';
 import '../ui/explore/explore.dart' as explore;
 import '../ui/home/home.dart' as home;
-import '../ui/timer/timer.dart' as timer;
+import '../ui/stopwatch/stopwatch.dart' as stopwatch;
 import '../ui/wishlist/wishlist.dart' as wishlist;
 import '../ui/workspace/workspace.dart' as workspace;
 import 'routes.dart';
@@ -26,6 +26,14 @@ final routerConfig = GoRouter(
               builder: (context, state) {
                 return const explore.HomeScreen();
               },
+              routes: [
+                GoRoute(
+                  path: Routes.exploreDetails.path,
+                  builder: (context, state) {
+                    return const explore.DetailsScreen();
+                  },
+                ),
+              ],
             ),
           ],
         ),
@@ -78,17 +86,17 @@ final routerConfig = GoRouter(
         StatefulShellBranch(
           routes: [
             GoRoute(
-              path: Routes.timer.path,
+              path: Routes.stopwatch.path,
               builder: (context, state) {
-                return const timer.NoProjectScreen();
+                return const stopwatch.HomeView();
               },
               routes: [
                 GoRoute(
-                  path: Routes.timerDetails.path,
+                  path: Routes.stopwatchDetails.path,
                   builder: (context, state) {
                     final id = state.pathParameters['id'];
                     assert(id != null, 'The project id is required');
-                    return timer.TimerScreen(id: id as String);
+                    return stopwatch.DetailsView(id: id as String);
                   },
                 ),
               ],

@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../../core/themes/dimension.dart';
-import '../../extensions/extensions.dart';
+import '../../../core/themes/dimension.dart';
+import '../../../extensions/extensions.dart';
 
 class StopWatch extends StatefulWidget {
   final Stopwatch stopwatch;
