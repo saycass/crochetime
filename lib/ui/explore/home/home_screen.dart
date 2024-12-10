@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../routing/routes.dart';
 import '../../core/themes/dimension.dart';
-import '../../core/ui/image_loading.dart';
+import '../../core/ui/remote_image.dart';
 import '../../extensions/extensions.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -20,25 +22,13 @@ class HomeScreen extends StatelessWidget {
           slivers: [
             SliverGrid(
               delegate: SliverChildBuilderDelegate(
-                childCount: List.generate(18, (index) => 'Item $index').length,
+                childCount: List.generate(100, (index) => 'Item $index').length,
                 (context, index) {
                   return GestureDetector(
                     onTap: () {
-                      // GoRouter.of(context).go(Routes.exploreDetails.path);
+                      context.go(Routes.exploreDetails.withId('mock'));
                     },
-                    child: Image.network(
-                      randomImage,
-                      fit: BoxFit.cover,
-                      frameBuilder: (_, child, frame, wasSynchronouslyLoaded) {
-                        if (wasSynchronouslyLoaded) {
-                          return child;
-                        }
-                        return AnimatedSwitcher(
-                          duration: const Duration(milliseconds: 600),
-                          child: frame != null ? child : const ImageLoading(),
-                        );
-                      },
-                    ),
+                    child: RemoteImage(randomImage),
                   );
                 },
               ),

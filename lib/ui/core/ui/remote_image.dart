@@ -2,6 +2,37 @@ import 'package:flutter/material.dart';
 
 import '../../extensions/extensions.dart';
 
+const _duration = Duration(milliseconds: 600);
+
+class RemoteImage extends StatelessWidget {
+  const RemoteImage(
+    this.src, {
+    super.key,
+    this.fit,
+  });
+
+  final String src;
+
+  final BoxFit? fit;
+
+  @override
+  Widget build(BuildContext context) {
+    return Image.network(
+      src,
+      fit: fit ?? BoxFit.cover,
+      frameBuilder: (_, child, frame, wasSynchronouslyLoaded) {
+        if (wasSynchronouslyLoaded) return child;
+        return AnimatedSwitcher(
+          duration: _duration,
+          layoutBuilder: (currentChild, previousChildren) =>
+              currentChild ?? previousChildren.last,
+          child: frame != null ? child : const ImageLoading(),
+        );
+      },
+    );
+  }
+}
+
 class ImageLoading extends StatefulWidget {
   const ImageLoading({super.key});
 
@@ -18,7 +49,7 @@ class _ImageLoadingState extends State<ImageLoading>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 600),
+      duration: _duration,
     )..repeat(reverse: true);
   }
 
