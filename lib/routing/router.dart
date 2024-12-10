@@ -10,7 +10,7 @@ import '../ui/workspace/workspace.dart' as workspace;
 import 'routes.dart';
 
 final routerConfig = GoRouter(
-  initialLocation: Routes.explore.path,
+  initialLocation: Routes.root.path,
   debugLogDiagnostics: true,
   routes: [
     StatefulShellRoute.indexedStack(
