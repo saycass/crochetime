@@ -1,7 +1,9 @@
-import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
-import '../../home/widgets/crochet_pattern_card.dart';
+import '../../core/themes/dimension.dart';
+import '../../core/ui/image_loading.dart';
+import '../../extensions/extensions.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -14,35 +16,45 @@ class HomeScreen extends StatelessWidget {
       ),
       body: RefreshIndicator(
         onRefresh: () async {},
-        child: GridView.builder(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          itemCount: 6,
-          itemBuilder: (BuildContext context, int index) {
-            const card = CrochetPatternCard(
-              title: 'Cachecol',
-              description: 'Cachecol de crochê',
-            );
-            if (index % 2 != 0) {
-              return FadeInUp(
-                duration: const Duration(seconds: 1),
-                child: Transform.translate(
-                  offset: const Offset(0.0, 50.0),
-                  child: card,
-                ),
-              );
-            } else {
-              return FadeInDown(
-                duration: const Duration(seconds: 1),
-                child: card,
-              );
-            }
-          },
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            childAspectRatio: .5,
-            crossAxisCount: 2,
-            crossAxisSpacing: 16,
-            mainAxisSpacing: 16,
-          ),
+        child: CustomScrollView(
+          slivers: [
+            SliverGrid(
+              delegate: SliverChildBuilderDelegate(
+                childCount: List.generate(18, (index) => 'Item $index').length,
+                (context, index) {
+                  return GestureDetector(
+                    onTap: () {
+                      // GoRouter.of(context).go(Routes.exploreDetails.path);
+                    },
+                    child: Image.network(
+                      randomImage,
+                      fit: BoxFit.cover,
+                      frameBuilder: (_, child, frame, wasSynchronouslyLoaded) {
+                        if (wasSynchronouslyLoaded) {
+                          return child;
+                        }
+                        return AnimatedSwitcher(
+                          duration: const Duration(milliseconds: 600),
+                          child: frame != null ? child : const ImageLoading(),
+                        );
+                      },
+                    ),
+                  );
+                },
+              ),
+              gridDelegate: SliverQuiltedGridDelegate(
+                crossAxisCount: 4,
+                mainAxisSpacing: Dimension.smallest.size,
+                crossAxisSpacing: Dimension.smallest.size,
+                repeatPattern: QuiltedGridRepeatPattern.inverted,
+                pattern: const [
+                  QuiltedGridTile(2, 2),
+                  QuiltedGridTile(1, 1),
+                  QuiltedGridTile(1, 1),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );

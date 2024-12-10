@@ -7,6 +7,7 @@ class DetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: const Text('Project 1'),
       ),
       body: const Placeholder(),
     );
