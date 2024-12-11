@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../routing/routes.dart';
+import '../core/themes/dimension.dart';
 import '../core/ui/custom_text_form_field.dart';
 import '../core/ui/gradient_background.dart';
 import '../core/utils/regex.dart';
@@ -41,13 +42,13 @@ class _LoginScreenState extends State<LoginScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const GradientBackground(
+             GradientBackground(
               children: [
-                Text(
+                const Text(
                   'Entre na sua\nConta',
                 ),
-                SizedBox(height: 6),
-                Text(
+                Dimension.smaller.vertical,
+                const Text(
                   'Entre na sua Conta',
                 ),
               ],
@@ -55,7 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
             Form(
               key: _formKey,
               child: Padding(
-                padding: const EdgeInsets.all(20),
+                padding: Dimension.medium.allPadding,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -112,7 +113,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       onPressed: () {},
                       child: const Text('Esqueci minha senha'),
                     ),
-                    const SizedBox(height: 20),
+                    Dimension.medium.vertical,
                     ValueListenableBuilder(
                       valueListenable: fieldValidNotifier,
                       builder: (_, isValid, __) {
@@ -126,7 +127,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         );
                       },
                     ),
-                    const SizedBox(height: 20),
+                    Dimension.medium.vertical,
                     Divider(color: Colors.grey.shade200),
                   ],
                 ),
@@ -138,7 +139,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 const Text(
                   'Não tem uma conta?',
                 ),
-                const SizedBox(width: 4),
+                Dimension.smallest.vertical,
                 TextButton(
                   onPressed: () {
                     // context.go(Routes.register.complete);

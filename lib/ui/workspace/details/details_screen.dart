@@ -47,23 +47,17 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 children: [
                   Text(
                     'Descrição',
-                    style: context.textTheme.titleLarge!.copyWith(
-                      color: context.colorScheme.primary,
-                    ),
+                    style: context.textTheme.titleLarge!,
                   ),
                   Dimension.small.vertical,
                   Text(
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ',
-                    style: context.textTheme.bodyMedium!.copyWith(
-                      color: context.colorScheme.onSurface,
-                    ),
+                    style: context.textTheme.bodyMedium!,
                   ),
                   Dimension.small.vertical,
                   Text(
                     'Progresso',
-                    style: context.textTheme.titleLarge!.copyWith(
-                      color: context.colorScheme.primary,
-                    ),
+                    style: context.textTheme.titleLarge!,
                   ),
                   Dimension.small.vertical,
                   SingleChildScrollView(
@@ -99,9 +93,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     children: [
                       Text(
                         'Notas',
-                        style: context.textTheme.titleLarge!.copyWith(
-                          color: context.colorScheme.primary,
-                        ),
+                        style: context.textTheme.titleLarge!,
                       ),
                       IconButton(
                         onPressed: () {},
@@ -126,16 +118,12 @@ class _DetailsScreenState extends State<DetailsScreen> {
                   Dimension.small.vertical,
                   Text(
                     'Referências',
-                    style: context.textTheme.titleLarge!.copyWith(
-                      color: context.colorScheme.primary,
-                    ),
+                    style: context.textTheme.titleLarge!,
                   ),
                   Dimension.small.vertical,
                   Text(
                     '- Lorem ipsum dolor sit amet.',
-                    style: context.textTheme.bodyMedium!.copyWith(
-                      color: context.colorScheme.onSurface,
-                    ),
+                    style: context.textTheme.bodyMedium!,
                   ),
                   Dimension.extraLarge.vertical,
                 ],

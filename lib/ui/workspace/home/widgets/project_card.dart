@@ -96,9 +96,7 @@ class ProjectCard extends StatelessWidget {
                       padding: Dimension.smaller.horizontalPadding,
                       child: Text(
                         'Em progresso',
-                        style: context.textTheme.bodySmall!.copyWith(
-                          color: context.colorScheme.onTertiaryContainer,
-                        ),
+                        style: context.textTheme.bodySmall!,
                       ),
                     ),
                   ),

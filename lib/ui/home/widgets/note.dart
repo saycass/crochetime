@@ -28,13 +28,11 @@ class Note extends StatelessWidget {
             icon,
             color: context.colorScheme.onTertiaryContainer,
           ),
-          const SizedBox(width: 8),
+          Dimension.smaller.horizontal,
           Flexible(
             child: Text(
               text,
-              style: context.textTheme.labelLarge!.copyWith(
-                color: context.colorScheme.onTertiaryContainer,
-              ),
+              style: context.textTheme.labelLarge!,
             ),
           ),
         ],

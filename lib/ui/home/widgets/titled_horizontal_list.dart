@@ -33,15 +33,13 @@ class TitledHorizontalList extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: context.textTheme.headlineMedium!.copyWith(
-                      color: context.colorScheme.primary,
-                    ),
+                    style: context.textTheme.headlineMedium!,
                   ),
                   const Icon(Icons.arrow_forward_ios_rounded),
                 ],
               ),
             ),
-            const SizedBox(height: 24),
+            Dimension.medium.vertical,
             SizedBox(
               height: 200,
               child: ListView.builder(

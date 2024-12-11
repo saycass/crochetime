@@ -29,12 +29,12 @@ class HomeScreen extends StatelessWidget {
                 'Olá, SayCass!',
                 style: context.textTheme.displayMedium,
               ),
-              const SizedBox(height: 28),
+              Dimension.medium.vertical,
               const Note(
                 icon: Icons.timer_rounded,
                 text: 'Seu tempo dedicado ao crochê hoje foi de 2h e 30min.',
               ),
-              const SizedBox(height: 24),
+              Dimension.medium.vertical,
               TitledHorizontalList(
                 title: 'Seus projetos',
                 onTap: () {
@@ -42,7 +42,7 @@ class HomeScreen extends StatelessWidget {
                 },
                 items: const [1, 2, 3, 4, 5],
               ),
-              const SizedBox(height: 24),
+              Dimension.medium.vertical,
               TitledHorizontalList(
                 title: 'Explore novos projetos',
                 onTap: () {
@@ -50,7 +50,7 @@ class HomeScreen extends StatelessWidget {
                 },
                 items: const [1, 2, 3, 4, 5],
               ),
-              const SizedBox(height: 24),
+              Dimension.medium.vertical,
               const Note(
                 icon: Icons.info_rounded,
                 text: 'Novidades estão chegando! Continue acompanhando!',

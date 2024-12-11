@@ -25,16 +25,12 @@ class ProgressCard extends StatelessWidget {
         children: [
           Text(
             label,
-            style: context.textTheme.labelLarge!.copyWith(
-              color: context.colorScheme.onSurface,
-            ),
+            style: context.textTheme.labelLarge!,
           ),
           Text(
             value,
             textAlign: TextAlign.center,
-            style: context.textTheme.titleLarge!.copyWith(
-              color: context.colorScheme.primary,
-            ),
+            style: context.textTheme.titleLarge!,
           ),
         ],
       ),

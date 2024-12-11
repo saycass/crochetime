@@ -58,10 +58,8 @@ class _DetailsViewState extends State<DetailsView> {
                       children: [
                         Text(
                           'Dedicado hoje',
-                          style: context.textTheme.labelLarge!.copyWith(
-                            color: context.colorScheme.onSurface,
+                          style: context.textTheme.labelLarge!
                           ),
-                        ),
                         Text(
                           '00:00:00',
                           textAlign: TextAlign.center,
@@ -73,9 +71,7 @@ class _DetailsViewState extends State<DetailsView> {
                       children: [
                         Text(
                           'Tempo total',
-                          style: context.textTheme.labelLarge!.copyWith(
-                            color: context.colorScheme.onSurface,
-                          ),
+                          style: context.textTheme.labelLarge!
                         ),
                         Text(
                           '00:00:00',
