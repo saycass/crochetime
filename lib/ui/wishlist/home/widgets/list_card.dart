@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
+import '../../../../domain/models/wish.dart';
 import '../../../core/themes/dimension.dart';
 import '../../../extensions/extensions.dart';
-import '../../model/to_buy.dart';
 
 class ListCard extends StatefulWidget {
-  final ToBuy toBuy;
+  final Wish wish;
 
-  final void Function(ToBuy) onToBuyChanged;
+  final void Function(Wish) onToBuyChanged;
 
   const ListCard({
     super.key,
-    required this.toBuy,
     required this.onToBuyChanged,
+    required this.wish,
   });
 
   @override
@@ -20,7 +20,7 @@ class ListCard extends StatefulWidget {
 }
 
 class _ListCardState extends State<ListCard> {
-  final toBuyList = ToBuy.toBuyList();
+  final toBuyList = Wish.wishList();
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -29,10 +29,10 @@ class _ListCardState extends State<ListCard> {
         child: ListTile(
           trailing: IconButton(
             onPressed: () {
-              widget.onToBuyChanged(widget.toBuy);
+              widget.onToBuyChanged(widget.wish);
             },
             icon: Icon(
-              widget.toBuy.isDone
+              widget.wish.isDone
                   ? Icons.check_circle_outline_rounded
                   : Icons.radio_button_unchecked_rounded,
             ),
@@ -41,7 +41,7 @@ class _ListCardState extends State<ListCard> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                widget.toBuy.description,
+                widget.wish.description,
                 maxLines: 1,
                 style: context.textTheme.titleMedium!,
               ),
@@ -61,7 +61,7 @@ class _ListCardState extends State<ListCard> {
                   ),
                   Dimension.smaller.horizontal,
                   Text(
-                    widget.toBuy.createdAt.toString(),
+                    widget.wish.createdAt.toString(),
                     style: context.textTheme.labelSmall,
                   ),
                 ],

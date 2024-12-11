@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
+
+import '../../../domain/models/wish.dart';
 import '../../core/themes/dimension.dart';
-import '../model/to_buy.dart';
 import 'widgets/list_card.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -14,7 +15,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final toBuyList = ToBuy.toBuyList();
+  final wishList =  Wish.wishList ();
 
   @override
   Widget build(BuildContext context) {
@@ -29,14 +30,11 @@ class _HomeScreenState extends State<HomeScreen> {
           SliverToBoxAdapter(
             child: Padding(
               padding: Dimension.small.allPadding,
-              child: TextField(
+              child: const TextField(
                 decoration: InputDecoration(
-                  prefixIcon: const Icon(
+                  prefixIcon: Icon(
                     Icons.search,
                     size: 20,
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: Dimension.small.circularBorder,
                   ),
                   hintText: 'Pesquisar item',
                 ),
@@ -47,14 +45,15 @@ class _HomeScreenState extends State<HomeScreen> {
             delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
                 return Padding(
-                  padding: Dimension.smaller.allPadding,
+                  padding: Dimension.small.horizontalPadding+
+                  Dimension.smallest.verticalPadding,
                   child: ListCard(
-                    toBuy: toBuyList.elementAt(index),
+                    wish: wishList.elementAt(index),
                     onToBuyChanged: _handleToBuyChange,
                   ),
                 );
               },
-              childCount: toBuyList.length,
+              childCount: wishList.length,
             ),
           ),
         ],
@@ -66,9 +65,9 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  void _handleToBuyChange(ToBuy tobuy) {
+  void _handleToBuyChange(Wish wish) {
     setState(() {
-      tobuy.isDone = !tobuy.isDone;
+      wish.isDone = !wish.isDone;
     });
   }
 }
