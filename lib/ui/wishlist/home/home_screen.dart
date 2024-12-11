@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
 
 import '../../core/themes/dimension.dart';
+import '../model/to_buy.dart';
 import 'widgets/list_card.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({
     super.key,
   });
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final toBuyList = ToBuy.toBuyList();
 
   @override
   Widget build(BuildContext context) {
@@ -21,14 +29,16 @@ class HomeScreen extends StatelessWidget {
           SliverToBoxAdapter(
             child: Padding(
               padding: Dimension.small.allPadding,
-              child: const TextField(
+              child: TextField(
                 decoration: InputDecoration(
-                  prefixIcon: Icon(
+                  prefixIcon: const Icon(
                     Icons.search,
                     size: 20,
                   ),
-                  border: OutlineInputBorder(),
-                  hintText: "Pesquisar item",
+                  border: OutlineInputBorder(
+                    borderRadius: Dimension.small.circularBorder,
+                  ),
+                  hintText: 'Pesquisar item',
                 ),
               ),
             ),
@@ -38,14 +48,27 @@ class HomeScreen extends StatelessWidget {
               (BuildContext context, int index) {
                 return Padding(
                   padding: Dimension.smaller.allPadding,
-                  child: const ListCard(),
+                  child: ListCard(
+                    toBuy: toBuyList.elementAt(index),
+                    onToBuyChanged: _handleToBuyChange,
+                  ),
                 );
               },
-              childCount: 7,
+              childCount: toBuyList.length,
             ),
           ),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.add),
+      ),
     );
+  }
+
+  void _handleToBuyChange(ToBuy tobuy) {
+    setState(() {
+      tobuy.isDone = !tobuy.isDone;
+    });
   }
 }
