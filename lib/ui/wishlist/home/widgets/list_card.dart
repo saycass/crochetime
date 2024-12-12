@@ -20,7 +20,7 @@ class ListCard extends StatefulWidget {
 }
 
 class _ListCardState extends State<ListCard> {
-  final toBuyList = Wish.wishList();
+  final wishList = Wish.wishList();
   @override
   Widget build(BuildContext context) {
     return Card(

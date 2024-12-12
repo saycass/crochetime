@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 import '../../../domain/models/wish.dart';
 import '../../core/themes/dimension.dart';
 import 'widgets/list_card.dart';
@@ -15,7 +14,7 @@ class WishlistView extends StatefulWidget {
 }
 
 class _WishlistViewState extends State<WishlistView> {
-  final wishList =  Wish.wishList ();
+  final wishList = Wish.wishList();
 
   @override
   Widget build(BuildContext context) {
@@ -45,8 +44,8 @@ class _WishlistViewState extends State<WishlistView> {
             delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
                 return Padding(
-                  padding: Dimension.small.horizontalPadding+
-                  Dimension.smallest.verticalPadding,
+                  padding: Dimension.small.horizontalPadding +
+                      Dimension.smallest.verticalPadding,
                   child: ListCard(
                     wish: wishList.elementAt(index),
                     onToBuyChanged: _handleToBuyChange,

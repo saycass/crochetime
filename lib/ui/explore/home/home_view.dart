@@ -7,8 +7,8 @@ import '../../core/themes/dimension.dart';
 import '../../core/ui/remote_image.dart';
 import '../../extensions/extensions.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class HomeView extends StatelessWidget {
+  const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,20 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../domain/models/project.dart';
 import '../../../../routing/routes.dart';
 import '../../../core/themes/dimension.dart';
 import '../../../extensions/extensions.dart';
 
-class ProjectCard extends StatelessWidget {
-  final String title;
-  final String body;
+class ProjectCard extends StatefulWidget {
+  final Project project;
+  final void Function(Project) inProgressChanged;
 
   const ProjectCard({
     super.key,
-    required this.title,
-    this.body = 'Lorem ipsum dolor sit amet, consecteturt.',
+    required this.project,
+    required this.inProgressChanged,
   });
 
+  @override
+  State<ProjectCard> createState() => _ProjectCardState();
+}
+
+class _ProjectCardState extends State<ProjectCard> {
+  final projectList = Project.projectList();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -50,13 +57,13 @@ class ProjectCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        title,
+                        widget.project.title,
                         maxLines: 1,
                         style: context.textTheme.titleMedium!,
                       ),
                       Dimension.smaller.vertical,
                       Text(
-                        body,
+                        widget.project.description,
                         style: context.textTheme.labelMedium!,
                         maxLines: 2,
                       ),
@@ -70,7 +77,7 @@ class ProjectCard extends StatelessWidget {
                           ),
                           Dimension.smaller.horizontal,
                           Text(
-                            '10/03/2024',
+                            widget.project.createdAt.toString(),
                             style: context.textTheme.labelSmall,
                           ),
                         ],
@@ -94,8 +101,11 @@ class ProjectCard extends StatelessWidget {
                   child: Center(
                     child: Padding(
                       padding: Dimension.smaller.horizontalPadding,
-                      child: Text(
-                        'Em progresso',
+                      child:
+                      Text(
+                        widget.project.inProgress
+                            ? 'Em progresso'
+                            : 'Concluído',
                         style: context.textTheme.bodySmall!,
                       ),
                     ),

@@ -24,13 +24,13 @@ final routerConfig = GoRouter(
             GoRoute(
               path: Routes.explore.path,
               builder: (context, state) {
-                return const explore.HomeScreen();
+                return const explore.HomeView();
               },
               routes: [
                 GoRoute(
                   path: Routes.exploreDetails.path,
                   builder: (context, state) {
-                    return const explore.DetailsScreen();
+                    return const explore.DetailsView();
                   },
                 ),
               ],
