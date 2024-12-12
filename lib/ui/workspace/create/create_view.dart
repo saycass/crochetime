@@ -1,13 +1,87 @@
 import 'package:flutter/material.dart';
 
+import '../../core/themes/dimension.dart';
+import '../../extensions/extensions.dart';
+
 class CreateView extends StatelessWidget {
   const CreateView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: const Placeholder(),
+      appBar: AppBar(
+        title:  const  Text ('Crie seu projeto'),
+      ),
+      body: Padding(
+        padding:Dimension.small.allPadding,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Título',
+              style: context.textTheme.titleLarge!,
+            ),
+            Dimension.small.vertical,
+            TextFormField(
+              minLines: 1,
+              maxLines: 2,
+              decoration: InputDecoration(
+                hintText: 'Aqui vai o título',
+                border: OutlineInputBorder(
+                  borderRadius: Dimension.small.circularBorder,
+                  borderSide: BorderSide.none,
+                ),
+                filled: true,
+                fillColor: context.colorScheme.surfaceContainerHigh,
+              ),
+            ),
+            Dimension.small.vertical,
+            Text(
+              'Descrição',
+              style: context.textTheme.titleLarge!,
+            ),
+            Dimension.small.vertical,
+            TextFormField(
+              minLines: 1,
+              maxLines: 2,
+              decoration: InputDecoration(
+                hintText: 'E aqui vai descrição',
+                border: OutlineInputBorder(
+                  borderRadius: Dimension.small.circularBorder,
+                  borderSide: BorderSide.none,
+                ),
+                filled: true,
+                fillColor: context.colorScheme.surfaceContainerHigh,
+              ),
+            ),
+            Dimension.small.vertical,
+            Text(
+              'Referencias',
+              style: context.textTheme.titleLarge!,
+            ),
+            Dimension.small.vertical,
+            TextFormField(
+              minLines: 1,
+              maxLines: 2,
+              decoration: InputDecoration(
+                hintText: 'Link de receitas ou vídeos',
+                border: OutlineInputBorder(
+                  borderRadius: Dimension.small.circularBorder,
+                  borderSide: BorderSide.none,
+                ),
+                filled: true,
+                fillColor: context.colorScheme.surfaceContainerHigh,
+              ),
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+        },
+        child: const Icon(Icons.save),
+      ),
     );
+
   }
 }

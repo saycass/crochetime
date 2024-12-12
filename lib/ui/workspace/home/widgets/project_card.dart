@@ -105,7 +105,7 @@ class _ProjectCardState extends State<ProjectCard> {
                       Text(
                         widget.project.inProgress
                             ? 'Em progresso'
-                            : 'Concluído',
+                            : 'Conclúido',
                         style: context.textTheme.bodySmall!,
                       ),
                     ),

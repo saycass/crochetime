@@ -20,29 +20,23 @@ class _HomeViewState extends State<HomeView> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Seus projetos'),
-        actions: [
-          IconButton(
-            onPressed: () {
-              context.go(Routes.workspaceCreate.complete);
-            },
-            icon: const Icon(
-              Icons.add_circle_sharp,
-            ),
-          ),
-        ],
       ),
       body: ListView.builder(
         padding: Dimension.medium.allPadding,
         itemCount: 4,
         itemBuilder: (BuildContext context, int index) {
           return Container(
-            margin: Dimension.small.verticalPadding,
-            child: ProjectCard(
-              project: projectList.elementAt(index),
-                inProgressChanged: _handleInProgress
-            )
-          );
+              margin: Dimension.small.verticalPadding,
+              child: ProjectCard(
+                  project: projectList.elementAt(index),
+                  inProgressChanged: _handleInProgress));
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          context.go(Routes.workspaceCreate.complete);
+        },
+        child: const Icon(Icons.add),
       ),
     );
   }
@@ -52,5 +46,4 @@ class _HomeViewState extends State<HomeView> {
       project.inProgress = !project.inProgress;
     });
   }
-
 }
