@@ -8,8 +8,8 @@ import 'home_viewmodel.dart';
 import 'widgets/note.dart';
 import 'widgets/titled_horizontal_list.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({
+class HomeView extends StatelessWidget {
+  const HomeView({
     super.key,
     required this.viewModel,
   });

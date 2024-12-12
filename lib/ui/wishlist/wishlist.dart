@@ -1,1 +1,1 @@
-export 'home/home_screen.dart';
+export 'home/wishlist_view.dart';

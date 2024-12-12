@@ -5,8 +5,8 @@ import '../../../routing/routes.dart';
 import '../../core/themes/dimension.dart';
 import 'widgets/project_card.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class HomeView extends StatelessWidget {
+  const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {

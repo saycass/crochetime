@@ -5,16 +5,16 @@ import '../../../domain/models/wish.dart';
 import '../../core/themes/dimension.dart';
 import 'widgets/list_card.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({
+class WishlistView extends StatefulWidget {
+  const WishlistView({
     super.key,
   });
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<WishlistView> createState() => _WishlistViewState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _WishlistViewState extends State<WishlistView> {
   final wishList =  Wish.wishList ();
 
   @override

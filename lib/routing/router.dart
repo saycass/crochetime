@@ -42,7 +42,7 @@ final routerConfig = GoRouter(
             GoRoute(
               path: Routes.wishlist.path,
               builder: (context, state) {
-                return const wishlist.HomeScreen();
+                return const wishlist.WishlistView();
               },
             ),
           ],
@@ -52,7 +52,7 @@ final routerConfig = GoRouter(
             GoRoute(
               path: Routes.root.path,
               builder: (context, state) {
-                return home.HomeScreen(
+                return home.HomeView(
                   viewModel: home.HomeViewModel(),
                 );
               },
@@ -64,13 +64,13 @@ final routerConfig = GoRouter(
             GoRoute(
               path: Routes.workspace.path,
               builder: (context, state) {
-                return const workspace.HomeScreen();
+                return const workspace.HomeView();
               },
               routes: [
                 GoRoute(
                   path: Routes.workspaceCreate.path,
                   builder: (context, state) {
-                    return const workspace.CreateScreen();
+                    return const workspace.CreateView();
                   },
                 ),
                 GoRoute(
