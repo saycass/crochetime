@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../domain/models/wish.dart';
 import '../../core/themes/dimension.dart';
 import '../../core/ui/search_field.dart';
+import 'widgets/expandable_fab.dart';
 import 'widgets/list_card.dart';
 
 class WishlistView extends StatefulWidget {
@@ -50,10 +51,7 @@ class _WishlistViewState extends State<WishlistView> {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.add),
-      ),
+      floatingActionButton: const ExpandableFab(),
     );
   }
 
