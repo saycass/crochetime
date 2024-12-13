@@ -27,7 +27,7 @@ class HomeView extends StatelessWidget {
             children: [
               Text(
                 'Olá, SayCass!',
-                style: context.textTheme.displayMedium,
+                style: context.textTheme.displaySmall,
               ),
               Dimension.medium.vertical,
               const Note(

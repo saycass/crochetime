@@ -32,7 +32,7 @@ class Note extends StatelessWidget {
           Flexible(
             child: Text(
               text,
-              style: context.textTheme.labelLarge!,
+              style: context.textTheme.bodySmall!,
             ),
           ),
         ],

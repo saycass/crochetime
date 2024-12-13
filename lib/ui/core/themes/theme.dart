@@ -116,28 +116,45 @@ class MaterialTheme {
 
   ThemeData theme(ColorScheme colorScheme) {
     return ThemeData(
-      useMaterial3: true,
-      brightness: colorScheme.brightness,
-      colorScheme: colorScheme,
-      textTheme: textTheme.apply(
-        bodyColor: colorScheme.onSurface,
-        displayColor: colorScheme.onSurface,
-      ),
-      scaffoldBackgroundColor: colorScheme.surface,
-      canvasColor: colorScheme.surface,
-      appBarTheme: AppBarTheme(
-        backgroundColor: colorScheme.surface,
-        foregroundColor: colorScheme.onSurface,
-        surfaceTintColor: colorScheme.surfaceTint,
-      ),
-      inputDecorationTheme: InputDecorationTheme(
-        border: OutlineInputBorder(
-          borderRadius: Dimension.small.circularBorder,
-          borderSide: BorderSide.none,
+        useMaterial3: true,
+        brightness: colorScheme.brightness,
+        colorScheme: colorScheme,
+        textTheme: textTheme.copyWith(
+            bodySmall: textTheme.bodySmall?.copyWith(
+              color: colorScheme.onTertiaryContainer,
+            ),
+            displaySmall: textTheme.displaySmall?.copyWith(
+              color: colorScheme.primary,
+            ),
+            headlineSmall: textTheme.headlineSmall?.copyWith(
+              color: colorScheme.primary,
+            ),
+            titleMedium: textTheme.titleMedium?.copyWith(
+              color: colorScheme.primary,
+            ),
+            titleLarge: textTheme.titleLarge?.copyWith(
+              color: colorScheme.primary,
+            )),
+        scaffoldBackgroundColor: colorScheme.surface,
+        canvasColor: colorScheme.surface,
+        appBarTheme: AppBarTheme(
+            backgroundColor: colorScheme.surface,
+            foregroundColor: colorScheme.onSurface,
+            surfaceTintColor: colorScheme.surfaceTint,
+            titleTextStyle: textTheme.headlineSmall?.copyWith(
+              color: colorScheme.primary,
+            ),),
+        inputDecorationTheme: InputDecorationTheme(
+          border: OutlineInputBorder(
+            borderRadius: Dimension.small.circularBorder,
+            borderSide: BorderSide.none,
+          ),
+          filled: true,
         ),
-        filled: true,
-      ),
-    );
+        iconButtonTheme: IconButtonThemeData(
+            style: ButtonStyle(
+          foregroundColor: WidgetStateProperty.all<Color>(colorScheme.primary),
+        ),),);
   }
 }
 

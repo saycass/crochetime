@@ -33,7 +33,7 @@ class TitledHorizontalList extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: context.textTheme.headlineMedium!,
+                    style: context.textTheme.headlineSmall!,
                   ),
                   const Icon(Icons.arrow_forward_ios_rounded),
                 ],
@@ -41,13 +41,13 @@ class TitledHorizontalList extends StatelessWidget {
             ),
             Dimension.medium.vertical,
             SizedBox(
-              height: 200,
+              height: 180,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: items.length,
                 itemBuilder: (context, index) {
                   return Container(
-                    width: 200,
+                    width: 180,
                     margin: Dimension.smaller.horizontalPadding,
                     decoration: BoxDecoration(
                       borderRadius: Dimension.small.circularBorder,
