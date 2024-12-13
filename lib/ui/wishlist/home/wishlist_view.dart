@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../domain/models/wish.dart';
 import '../../core/themes/dimension.dart';
+import '../../core/ui/search_field.dart';
 import 'widgets/list_card.dart';
 
 class WishlistView extends StatefulWidget {
@@ -29,15 +30,7 @@ class _WishlistViewState extends State<WishlistView> {
           SliverToBoxAdapter(
             child: Padding(
               padding: Dimension.small.allPadding,
-              child: const TextField(
-                decoration: InputDecoration(
-                  prefixIcon: Icon(
-                    Icons.search,
-                    size: 20,
-                  ),
-                  hintText: 'Pesquisar item',
-                ),
-              ),
+              child: const SearchField(),
             ),
           ),
           SliverList(

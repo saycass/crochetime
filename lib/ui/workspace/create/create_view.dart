@@ -10,10 +10,10 @@ class CreateView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:  const  Text ('Crie seu projeto'),
+        title: const Text('Crie seu projeto'),
       ),
       body: Padding(
-        padding:Dimension.small.allPadding,
+        padding: Dimension.small.allPadding,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -25,14 +25,8 @@ class CreateView extends StatelessWidget {
             TextFormField(
               minLines: 1,
               maxLines: 2,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Aqui vai o título',
-                border: OutlineInputBorder(
-                  borderRadius: Dimension.small.circularBorder,
-                  borderSide: BorderSide.none,
-                ),
-                filled: true,
-                fillColor: context.colorScheme.surfaceContainerHigh,
               ),
             ),
             Dimension.small.vertical,
@@ -44,14 +38,8 @@ class CreateView extends StatelessWidget {
             TextFormField(
               minLines: 1,
               maxLines: 2,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'E aqui vai descrição',
-                border: OutlineInputBorder(
-                  borderRadius: Dimension.small.circularBorder,
-                  borderSide: BorderSide.none,
-                ),
-                filled: true,
-                fillColor: context.colorScheme.surfaceContainerHigh,
               ),
             ),
             Dimension.small.vertical,
@@ -63,25 +51,17 @@ class CreateView extends StatelessWidget {
             TextFormField(
               minLines: 1,
               maxLines: 2,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Link de receitas ou vídeos',
-                border: OutlineInputBorder(
-                  borderRadius: Dimension.small.circularBorder,
-                  borderSide: BorderSide.none,
-                ),
-                filled: true,
-                fillColor: context.colorScheme.surfaceContainerHigh,
               ),
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-        },
+        onPressed: () {},
         child: const Icon(Icons.save),
       ),
     );
-
   }
 }

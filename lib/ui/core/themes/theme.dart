@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'dimension.dart';
+
 class MaterialTheme {
   final TextTheme textTheme;
 
@@ -128,6 +130,14 @@ class MaterialTheme {
         foregroundColor: colorScheme.onSurface,
         surfaceTintColor: colorScheme.surfaceTint,
       ),
+      inputDecorationTheme: InputDecorationTheme(
+        border: OutlineInputBorder(
+          borderRadius: Dimension.small.circularBorder,
+          borderSide: BorderSide.none,
+        ),
+        filled: true,
+        fillColor: colorScheme.surfaceContainerHigh,
+      )
     );
   }
 }
