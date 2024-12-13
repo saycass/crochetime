@@ -136,8 +136,7 @@ class MaterialTheme {
           borderSide: BorderSide.none,
         ),
         filled: true,
-        fillColor: colorScheme.surfaceContainerHigh,
-      )
+      ),
     );
   }
 }

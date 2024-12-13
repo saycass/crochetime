@@ -112,7 +112,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
                         borderSide: BorderSide.none,
                       ),
                       filled: true,
-                      fillColor: context.colorScheme.surfaceContainerHigh,
                     ),
                   ),
                   Dimension.small.vertical,

@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 
 import '../../../core/themes/dimension.dart';
-import '../../../extensions/extensions.dart';
 
 const double kFloatingActionButtonSize = 56;
 
@@ -69,9 +68,7 @@ class _ExpandableFabState extends State<ExpandableFab>
                 );
               },
               child: Container(
-                padding: Dimension.small.horizontalPadding,
                 decoration: ShapeDecoration(
-                  color: context.colorScheme.surfaceContainer,
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(16.0)),
                   ),
