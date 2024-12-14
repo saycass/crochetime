@@ -1,4 +1,4 @@
-package com.example.crochetime
+package com.saycass.crochettime.app
 
 import io.flutter.embedding.android.FlutterActivity
 
